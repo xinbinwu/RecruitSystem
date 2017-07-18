@@ -6,6 +6,7 @@ public class person_conn_info {
      * This field corresponds to the database column person_conn_info.Conn_Id
      *
      * @mbggenerated Tue Jul 18 11:12:09 CST 2017
+     * 关系ID
      */
     private Integer connId;
 
@@ -14,6 +15,7 @@ public class person_conn_info {
      * This field corresponds to the database column person_conn_info.P_id
      *
      * @mbggenerated Tue Jul 18 11:12:09 CST 2017
+     * 个人用户ID
      */
     private Integer pId;
 
@@ -22,6 +24,7 @@ public class person_conn_info {
      * This field corresponds to the database column person_conn_info.Edu_id
      *
      * @mbggenerated Tue Jul 18 11:12:09 CST 2017
+     * 教育背景ID
      */
     private Integer eduId;
 
@@ -30,6 +33,7 @@ public class person_conn_info {
      * This field corresponds to the database column person_conn_info.Work_id
      *
      * @mbggenerated Tue Jul 18 11:12:09 CST 2017
+     * 工作经验Id
      */
     private Integer workId;
 
@@ -38,6 +42,7 @@ public class person_conn_info {
      * This field corresponds to the database column person_conn_info.Project_id
      *
      * @mbggenerated Tue Jul 18 11:12:09 CST 2017
+     * 项目经验Id
      */
     private Integer projectId;
 

@@ -8,6 +8,8 @@ public class work_experience {
      * This field corresponds to the database column work_experience.work_id
      *
      * @mbggenerated Tue Jul 18 11:12:09 CST 2017
+     * 
+     * 工作经验ID
      */
     private Integer workId;
 
@@ -16,6 +18,7 @@ public class work_experience {
      * This field corresponds to the database column work_experience.com_name
      *
      * @mbggenerated Tue Jul 18 11:12:09 CST 2017
+     * 公司名称
      */
     private String comName;
 
@@ -24,6 +27,8 @@ public class work_experience {
      * This field corresponds to the database column work_experience.job_name
      *
      * @mbggenerated Tue Jul 18 11:12:09 CST 2017
+     * 
+     * 职位名称
      */
     private String jobName;
 
@@ -32,6 +37,8 @@ public class work_experience {
      * This field corresponds to the database column work_experience.start_date
      *
      * @mbggenerated Tue Jul 18 11:12:09 CST 2017
+     * 
+     * 开始时间
      */
     private Date startDate;
 
@@ -40,6 +47,8 @@ public class work_experience {
      * This field corresponds to the database column work_experience.end_date
      *
      * @mbggenerated Tue Jul 18 11:12:09 CST 2017
+     * 
+     * 结束时间
      */
     private Date endDate;
 
@@ -48,6 +57,8 @@ public class work_experience {
      * This field corresponds to the database column work_experience.work_content
      *
      * @mbggenerated Tue Jul 18 11:12:09 CST 2017
+     * 
+     * 工作内容
      */
     private String workContent;
 

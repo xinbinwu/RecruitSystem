@@ -6,6 +6,7 @@ public class company_user {
      * This field corresponds to the database column company_user.cuser_id
      *
      * @mbggenerated Tue Jul 18 11:12:09 CST 2017
+     * 企业用户ID
      */
     private Integer cuserId;
 
@@ -14,6 +15,7 @@ public class company_user {
      * This field corresponds to the database column company_user.cname
      *
      * @mbggenerated Tue Jul 18 11:12:09 CST 2017
+     * 企业用户帐号
      */
     private String cname;
 
@@ -22,6 +24,7 @@ public class company_user {
      * This field corresponds to the database column company_user.cpwd
      *
      * @mbggenerated Tue Jul 18 11:12:09 CST 2017
+     * 企业用户密码
      */
     private String cpwd;
 
@@ -30,6 +33,7 @@ public class company_user {
      * This field corresponds to the database column company_user.com_id
      *
      * @mbggenerated Tue Jul 18 11:12:09 CST 2017
+     * s所属公司ID
      */
     private Integer comId;
 

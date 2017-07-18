@@ -8,6 +8,7 @@ public class project_experience {
      * This field corresponds to the database column project_experience.project_id
      *
      * @mbggenerated Tue Jul 18 11:12:09 CST 2017
+     * 项目经验ID
      */
     private Integer projectId;
 
@@ -16,6 +17,7 @@ public class project_experience {
      * This field corresponds to the database column project_experience.com_name
      *
      * @mbggenerated Tue Jul 18 11:12:09 CST 2017
+     * 项目名称
      */
     private String comName;
 
@@ -24,6 +26,7 @@ public class project_experience {
      * This field corresponds to the database column project_experience.job_name
      *
      * @mbggenerated Tue Jul 18 11:12:09 CST 2017
+     * 工作类型
      */
     private String jobName;
 
@@ -32,6 +35,7 @@ public class project_experience {
      * This field corresponds to the database column project_experience.pro_name
      *
      * @mbggenerated Tue Jul 18 11:12:09 CST 2017
+     * 项目名称
      */
     private String proName;
 
@@ -40,6 +44,7 @@ public class project_experience {
      * This field corresponds to the database column project_experience.start_date
      *
      * @mbggenerated Tue Jul 18 11:12:09 CST 2017
+     * 项目开始时间
      */
     private Date startDate;
 
@@ -48,6 +53,8 @@ public class project_experience {
      * This field corresponds to the database column project_experience.end_date
      *
      * @mbggenerated Tue Jul 18 11:12:09 CST 2017
+     * 
+     * 项目结束时间
      */
     private Date endDate;
 
@@ -56,6 +63,8 @@ public class project_experience {
      * This field corresponds to the database column project_experience.pro_content
      *
      * @mbggenerated Tue Jul 18 11:12:09 CST 2017
+     * 
+     * 项目内容
      */
     private String proContent;
 

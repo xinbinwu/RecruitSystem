@@ -8,6 +8,7 @@ public class edu_background {
      * This field corresponds to the database column edu_background.edu_id
      *
      * @mbggenerated Tue Jul 18 11:12:09 CST 2017
+     * 教育背景ID
      */
     private Integer eduId;
 
@@ -16,6 +17,7 @@ public class edu_background {
      * This field corresponds to the database column edu_background.sch_name
      *
      * @mbggenerated Tue Jul 18 11:12:09 CST 2017
+     * 学校名称
      */
     private String schName;
 
@@ -24,6 +26,7 @@ public class edu_background {
      * This field corresponds to the database column edu_background.maj_name
      *
      * @mbggenerated Tue Jul 18 11:12:09 CST 2017
+     * 专业名称
      */
     private String majName;
 
@@ -32,6 +35,7 @@ public class edu_background {
      * This field corresponds to the database column edu_background.edu
      *
      * @mbggenerated Tue Jul 18 11:12:09 CST 2017
+     * 学历
      */
     private String edu;
 
@@ -40,6 +44,7 @@ public class edu_background {
      * This field corresponds to the database column edu_background.start_date
      *
      * @mbggenerated Tue Jul 18 11:12:09 CST 2017
+     * 何时开始
      */
     private Date startDate;
 
@@ -48,6 +53,8 @@ public class edu_background {
      * This field corresponds to the database column edu_background.end_date
      *
      * @mbggenerated Tue Jul 18 11:12:09 CST 2017
+     * 何时结束
+     * 
      */
     private Date endDate;
 

@@ -8,6 +8,7 @@ public class personal_user {
      * This field corresponds to the database column personal_user.pid
      *
      * @mbggenerated Tue Jul 18 11:12:09 CST 2017
+     * 个人用户ID
      */
     private Integer pid;
 
@@ -16,6 +17,7 @@ public class personal_user {
      * This field corresponds to the database column personal_user.ppwd
      *
      * @mbggenerated Tue Jul 18 11:12:09 CST 2017
+     * 个人用户密码
      */
     private String ppwd;
 
@@ -24,6 +26,7 @@ public class personal_user {
      * This field corresponds to the database column personal_user.pname
      *
      * @mbggenerated Tue Jul 18 11:12:09 CST 2017
+     * 个人用户帐号
      */
     private String pname;
 
@@ -32,6 +35,7 @@ public class personal_user {
      * This field corresponds to the database column personal_user.sex
      *
      * @mbggenerated Tue Jul 18 11:12:09 CST 2017
+     * 用户性别
      */
     private String sex;
 
@@ -40,6 +44,7 @@ public class personal_user {
      * This field corresponds to the database column personal_user.birthday
      *
      * @mbggenerated Tue Jul 18 11:12:09 CST 2017
+     * 用户出生日期
      */
     private Date birthday;
 
@@ -48,6 +53,7 @@ public class personal_user {
      * This field corresponds to the database column personal_user.edu
      *
      * @mbggenerated Tue Jul 18 11:12:09 CST 2017
+     * 用户学历
      */
     private String edu;
 
@@ -56,6 +62,7 @@ public class personal_user {
      * This field corresponds to the database column personal_user.start_year
      *
      * @mbggenerated Tue Jul 18 11:12:09 CST 2017
+     * 用户开始工作年份
      */
     private Integer startYear;
 
@@ -64,6 +71,7 @@ public class personal_user {
      * This field corresponds to the database column personal_user.email
      *
      * @mbggenerated Tue Jul 18 11:12:09 CST 2017
+     * 用户EMAIl
      */
     private String email;
 
@@ -72,6 +80,7 @@ public class personal_user {
      * This field corresponds to the database column personal_user.state
      *
      * @mbggenerated Tue Jul 18 11:12:09 CST 2017
+     * 用户现在工作状态
      */
     private String state;
 

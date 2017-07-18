@@ -8,6 +8,7 @@ public class job_info {
      * This field corresponds to the database column job_info.job_id
      *
      * @mbggenerated Tue Jul 18 11:12:09 CST 2017
+     * 工作ID
      */
     private Integer jobId;
 
@@ -16,6 +17,7 @@ public class job_info {
      * This field corresponds to the database column job_info.job_name
      *
      * @mbggenerated Tue Jul 18 11:12:09 CST 2017
+     * 工作名称
      */
     private String jobName;
 
@@ -24,6 +26,7 @@ public class job_info {
      * This field corresponds to the database column job_info.job_sal
      *
      * @mbggenerated Tue Jul 18 11:12:09 CST 2017
+     * 工作薪水
      */
     private Double jobSal;
 
@@ -32,6 +35,7 @@ public class job_info {
      * This field corresponds to the database column job_info.job_year
      *
      * @mbggenerated Tue Jul 18 11:12:09 CST 2017
+     * 工作要求年份
      */
     private String jobYear;
 
@@ -40,6 +44,7 @@ public class job_info {
      * This field corresponds to the database column job_info.job_edu
      *
      * @mbggenerated Tue Jul 18 11:12:09 CST 2017
+     * 工作要求学历
      */
     private String jobEdu;
 
@@ -48,6 +53,7 @@ public class job_info {
      * This field corresponds to the database column job_info.job_date
      *
      * @mbggenerated Tue Jul 18 11:12:09 CST 2017
+     * 工作发布时间
      */
     private Date jobDate;
 
@@ -56,6 +62,7 @@ public class job_info {
      * This field corresponds to the database column job_info.job_welfare
      *
      * @mbggenerated Tue Jul 18 11:12:09 CST 2017
+     * 职位福利
      */
     private String jobWelfare;
 
@@ -64,6 +71,7 @@ public class job_info {
      * This field corresponds to the database column job_info.job_description
      *
      * @mbggenerated Tue Jul 18 11:12:09 CST 2017
+     * 职位描述
      */
     private String jobDescription;
 
@@ -72,6 +80,7 @@ public class job_info {
      * This field corresponds to the database column job_info.com_id
      *
      * @mbggenerated Tue Jul 18 11:12:09 CST 2017
+     * 所属公司ID
      */
     private Integer comId;
 

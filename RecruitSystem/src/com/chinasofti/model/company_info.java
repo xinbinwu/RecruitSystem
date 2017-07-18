@@ -6,6 +6,7 @@ public class company_info {
      * This field corresponds to the database column company_info.com_id
      *
      * @mbggenerated Tue Jul 18 11:12:09 CST 2017
+     * 公司ID
      */
     private Integer comId;
 
@@ -14,6 +15,7 @@ public class company_info {
      * This field corresponds to the database column company_info.com_name
      *
      * @mbggenerated Tue Jul 18 11:12:09 CST 2017
+     * 公司名称
      */
     private String comName;
 
@@ -22,6 +24,7 @@ public class company_info {
      * This field corresponds to the database column company_info.com_field
      *
      * @mbggenerated Tue Jul 18 11:12:09 CST 2017
+     * 公司领域
      */
     private String comField;
 
@@ -30,6 +33,7 @@ public class company_info {
      * This field corresponds to the database column company_info.com_num
      *
      * @mbggenerated Tue Jul 18 11:12:09 CST 2017
+     * 公司人数
      */
     private Integer comNum;
 
@@ -38,6 +42,7 @@ public class company_info {
      * This field corresponds to the database column company_info.com_add
      *
      * @mbggenerated Tue Jul 18 11:12:09 CST 2017
+     * 公司地址
      */
     private String comAdd;
 
@@ -46,6 +51,7 @@ public class company_info {
      * This field corresponds to the database column company_info.com_info
      *
      * @mbggenerated Tue Jul 18 11:12:09 CST 2017
+     * 公司信息
      */
     private String comInfo;
 
