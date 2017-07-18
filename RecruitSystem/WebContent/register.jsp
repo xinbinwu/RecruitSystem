@@ -35,7 +35,7 @@
 			<h3>注册 My Job</h3>
 			<div id="registerTip" class="tip-error"></div>
 			<!-- tip-error没有提示显示为空，不需要隐藏 -->
-			<form style="width: 350px">
+			<form style="width: 350px" action="register.action" method="post">
 				<div class="form-group">
 					<div class="form-group pst-relative drop-select-input-box">
 						<div class="input-box">
@@ -69,10 +69,10 @@
 						</label>
 					</div>
 				</div>
-				<a class="btn sso-btn" id="registerBtn">注册</a>
+				<input class="btn sso-btn" id="registerBtn" type="submit" value="注册"/>
 			</form>
 			<div class="tip-text align-center">
-				<span> 已有账号?<a href="/index/login" class="login-link">立即登录</a></span>
+				<span> 已有账号?<a href="login.jsp" class="login-link">立即登录</a></span>
 			</div>
 		</div>
 		<!-- 注册 end -->
