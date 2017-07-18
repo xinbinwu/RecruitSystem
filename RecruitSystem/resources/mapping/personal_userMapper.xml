@@ -176,4 +176,18 @@
       state = #{state,jdbcType=VARCHAR}
     where pid = #{pid,jdbcType=INTEGER}
   </update>
+  
+  <select id="selectByPname" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from personal_user
+		where pname = #{pname}
+	</select>
+
+	<select id="selectAll" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from personal_user
+	</select>
 </mapper>

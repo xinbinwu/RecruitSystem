@@ -29,7 +29,7 @@ public class LoginController {
 		if (pus.selectByPname(username) == null && password.equals(cpassword)) {
 			puser.setPname(username);
 			puser.setPpwd(password);
-    
+
 			if (pus.insertSelective(puser) > 0) {
 				System.out.println("注册成功！");
 				mav.addObject("username", username);
@@ -39,16 +39,16 @@ public class LoginController {
 				return mav;
 			} else {
 				System.out.println("注册失败！");
-				mav.setViewName("regitser");
+				mav.setViewName("register");
 				mav.addObject("RegisteredFailedmessage",
-						"Sorry,Registered Failed,Please Clik On Join us Register Again！");
+						"Sorry,Registered Failed,Please Register Again！");
 				return mav;
 			}
 
 		} else {
 			System.out.println("注册失败！");
-			mav.setViewName("regitser");
-			mav.addObject("RegisteredFailedmessage", "Sorry,Registered Failed,Please Clik On Join us Register Again！");
+			mav.setViewName("register");
+			mav.addObject("RegisteredFailedmessage", "Sorry,Registered Failed,Please Register Again！");
 			return mav;
 		}
 

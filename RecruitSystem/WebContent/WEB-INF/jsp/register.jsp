@@ -33,6 +33,7 @@
 		<div class="sso-form sso-register" id="sso-register"
 			style="display: block;">
 			<h3>注册 My Job</h3>
+			<font color="red">${RegisteredFailedmessage}</font>
 			<div id="registerTip" class="tip-error"></div>
 			<!-- tip-error没有提示显示为空，不需要隐藏 -->
 			<form style="width: 350px" action="register.action" method="post">
