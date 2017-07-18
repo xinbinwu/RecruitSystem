@@ -32,16 +32,16 @@
 		<!-- 注册 -->
 		<div class="sso-form sso-register" id="sso-register"
 			style="display: block;">
-			<h3>注册 My Job</h3>
 			<font color="red">${RegisteredFailedmessage}</font>
+			<h3>注册 My Job</h3>
 			<div id="registerTip" class="tip-error"></div>
 			<!-- tip-error没有提示显示为空，不需要隐藏 -->
 			<form style="width: 350px" action="register.action" method="post">
 				<div class="form-group">
 					<div class="form-group pst-relative drop-select-input-box">
 						<div class="input-box">
-							<i class="input-ico ico-phone"></i> <input name="registerPhone" required="required"
-								type="text" class="form-control" 
+							<i class="input-ico ico-phone"></i> <input name="registerPhone"
+								required="required" type="text" class="form-control"
 								placeholder="手机号">
 						</div>
 
@@ -50,18 +50,20 @@
 
 				<div class="form-group">
 					<div class="input-box">
-						<i class="input-ico ico-pwd"></i> <input name="registerPassword" required="required"
-							type="password" class="form-control" placeholder="密码">
+						<i class="input-ico ico-pwd"></i> <input name="registerPassword"
+							required="required" type="password" class="form-control"
+							placeholder="密码">
 					</div>
 				</div>
 				<div class="form-group">
 					<div class="input-box">
-						<i class="input-ico ico-pwd"></i> <input name="registerRepassword" required="required"
-							type="password" class="form-control" placeholder="确认密码">
+						<i class="input-ico ico-pwd"></i> <input name="registerRepassword"
+							required="required" type="password" class="form-control"
+							placeholder="确认密码">
 					</div>
 				</div>
-				
-				<input class="btn sso-btn"  type="submit" value="注册"/>
+
+				<input class="btn sso-btn" type="submit" value="注册" />
 			</form>
 			<div class="tip-text align-center">
 				<span> 已有账号?<a href="login.jsp" class="login-link">立即登录</a></span>
