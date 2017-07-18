@@ -65,9 +65,9 @@
 			</form>
 
 			<div class="tip-text">
-				<span class="pull-left">没有账号?<a href="/index/register"
+				<span class="pull-left">没有账号?<a href="register.jsp"
 					class="register-link">立即注册</a></span> <span class="pull-right"><a
-					href="/index/edit_pwd" class="forgotpwd-link">忘记密码</a></span>
+					href="changepassword.jsp" class="forgotpwd-link">忘记密码</a></span>
 			</div>
 		</div>
 		<!-- 登录 end -->
