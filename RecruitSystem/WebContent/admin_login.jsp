@@ -57,8 +57,9 @@
 							name="remember" value="1"> 记住我
 						</label>
 					</div>
-					<a href="com_login.jsp" name="role" value="1" title="企业登录">企业登录</a>
-					<a href="admin_login.jsp" name="role" value="-1" title="登录">管理员登录</a>
+					<a href="login.jsp" name="role" value="1"  title="企业登录">个人登录</a>
+					<a href="com_login.jsp" name="role" value="-1" 
+						title="登录">企业登录</a>
 				</div>
 				<button class="btn sso-btn" id="loginBtn" value="/">登录</button>
 			</form>

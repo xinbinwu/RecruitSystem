@@ -62,7 +62,7 @@
 							placeholder="确认密码">
 					</div>
 				</div>
-				<a href="com_register.jsp" name="role" value="1" title="企业登录">企业注册</a>
+				<a href="register.jsp" name="role" value="1" title="企业登录">个人注册</a>
 				<input class="btn sso-btn" type="submit" value="注册" />
 			</form>
 			<div class="tip-text align-center">
