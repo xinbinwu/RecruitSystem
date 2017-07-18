@@ -10,14 +10,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="renderer" content="webkit" />
 <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"
 	media="screen">
-<link rel="stylesheet" type="text/css" href="css/wangEditor.min.css">
-<link rel="stylesheet" type="text/css" href="css/main.css">
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/myjob.js"></script>
-<script src="js/doT.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/wangEditor.min.css">
+<link rel="stylesheet" type="text/css" href="../css/main.css">
+<script src="../js/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/myjob.js"></script>
+<script src="../js/doT.js"></script>
 <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>

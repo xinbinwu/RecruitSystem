@@ -48,8 +48,8 @@
 
 					<!-- 未登录显示 -->
 					<div class="pull-right ">
-						<a href="/index/register" class="top-btn">注册</a> <a
-							href="/index/login" class="top-btn">登录</a>
+						<a href="register.jsp" class="top-btn">注册</a> <a
+							href="login.jsp" class="top-btn">登录</a>
 					</div>
 					<!-- 未登录显示 end -->
 

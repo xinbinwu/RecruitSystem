@@ -16,7 +16,7 @@
 	<!-- 视图解析器jsp 内部资源视图解析器 /WEB-INF/pages/index.jsp -->
 	<bean id="jspViewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/WEB-INF/jsp/" />
+		<property name="prefix" value="/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
 	<!-- 配置静态资源 调用css样式 -->

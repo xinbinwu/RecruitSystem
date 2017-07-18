@@ -32,22 +32,21 @@
 		<!-- 登录 -->
 		<div class="sso-form sso-login" style="display: block;">
 			<h3 id="login_title">登录 My Job</h3>
+			<font color="blue">${RegisterSuccessmessage}</font>
 			<div id="loginTip" class="tip-error"></div>
 			<!-- tip-error没有提示显示为空，不需要隐藏 -->
 			<form style="width: 350px">
 				<div class="form-group pst-relative drop-select-input-box">
 					<div class="input-box">
-						<span class="drop-select"> <i class="ico-arrow"></i> <em
-							class="text-select">+86</em>
-						</span> <i class="input-ico ico-phone"></i> <input id="loginPhone"
+						 <i class="input-ico ico-phone"></i> <input id="loginPhone" required="required"
 							name="loginPhone" value="" type="text" class="form-control"
-							style="padding-left: 92px;" placeholder="手机号">
+							 placeholder="手机号">
 					</div>
 
 				</div>
 				<div class="form-group">
 					<div class="input-box">
-						<i class="input-ico ico-pwd"></i> <input id="loginPassword"
+						<i class="input-ico ico-pwd"></i> <input id="loginPassword" required="required"
 							value="" name="loginPassword" type="password"
 							class="form-control" placeholder="密码">
 					</div>

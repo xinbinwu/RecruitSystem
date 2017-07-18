@@ -33,16 +33,15 @@
 		<div class="sso-form sso-register" id="sso-register"
 			style="display: block;">
 			<h3>注册 My Job</h3>
+			<font color="red">${RegisteredFailedmessage}</font>
 			<div id="registerTip" class="tip-error"></div>
 			<!-- tip-error没有提示显示为空，不需要隐藏 -->
 			<form style="width: 350px" action="register.action" method="post">
 				<div class="form-group">
 					<div class="form-group pst-relative drop-select-input-box">
 						<div class="input-box">
-							<span class="drop-select"> <i class="ico-arrow"></i> <em
-								class="text-select">+86</em>
-							</span> <i class="input-ico ico-phone"></i> <input name="registerPhone"
-								type="text" class="form-control" style="padding-left: 92px;"
+							<i class="input-ico ico-phone"></i> <input name="registerPhone" required="required"
+								type="text" class="form-control" 
 								placeholder="手机号">
 						</div>
 
@@ -51,24 +50,17 @@
 
 				<div class="form-group">
 					<div class="input-box">
-						<i class="input-ico ico-pwd"></i> <input name="registerPassword"
+						<i class="input-ico ico-pwd"></i> <input name="registerPassword" required="required"
 							type="password" class="form-control" placeholder="密码">
 					</div>
 				</div>
 				<div class="form-group">
 					<div class="input-box">
-						<i class="input-ico ico-pwd"></i> <input name="registerRepassword"
+						<i class="input-ico ico-pwd"></i> <input name="registerRepassword" required="required"
 							type="password" class="form-control" placeholder="确认密码">
 					</div>
 				</div>
-				<div class="tip-text">
-					<div class="pull-left">
-						<label> <input name="legal" value="1" type="checkbox">
-							我已阅读并同意遵守<a href="/index/law">《法律声明》</a>
-
-						</label>
-					</div>
-				</div>
+				
 				<input class="btn sso-btn"  type="submit" value="注册"/>
 			</form>
 			<div class="tip-text align-center">

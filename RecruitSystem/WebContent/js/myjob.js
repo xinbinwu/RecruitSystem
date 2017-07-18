@@ -108,52 +108,52 @@ $(document).ready(function() {
 			$("#registerTip").html('请输入手机号码');
 			return;
 		}
-		//		if(!imgcode) {
-		//			$("#registerTip").html('请输入图形验证码');
-		//			return;
-		//		}
-		$("#registerTip").html('');
-		$.ajax({
-			url: '/sso/vcode',
-			type: 'post',
-			dataType: 'json',
-			data: {
-				'phone': phone,
-				'imgcode': imgcode,
-				'thing': 'register'
-			},
-			success: function(res) {
-				if(res.errno != 0) {
-					$("#registerTip").html(res.errmsg);
-				} else {
-					$("#registerTip").html('验证码发送成功');
-					timer($('#vcodeBtn'));
-				}
-			}
-		});
-		$("#registerTip").html('正在发送...');
-		var wait = 60;
-
-		function timer(obj) {
-			if(wait == 0) {
-				obj.removeClass('got');
-				obj.html('获取验证码');
-				wait = 60;
-			} else {
-				obj.addClass('got');
-				obj.html(wait + '秒后重新获取');
-				wait--;
-				setTimeout(function() {
-					timer(obj);
-				}, 1000)
-			}
-		}
+//		if(!imgcode) {
+//			$("#registerTip").html('请输入图形验证码');
+//			return;
+//		}
+//		$("#registerTip").html('');
+//		$.ajax({
+//			url: '/sso/vcode',
+//			type: 'post',
+//			dataType: 'json',
+//			data: {
+//				'phone': phone,
+//				'imgcode': imgcode,
+//				'thing': 'register'
+//			},
+//			success: function(res) {
+//				if(res.errno != 0) {
+//					$("#registerTip").html(res.errmsg);
+//				} else {
+//					$("#registerTip").html('验证码发送成功');
+//					timer($('#vcodeBtn'));
+//				}
+//			}
+//		});
+//		$("#registerTip").html('正在发送...');
+//		var wait = 60;
+//
+//		function timer(obj) {
+//			if(wait == 0) {
+//				obj.removeClass('got');
+//				obj.html('获取验证码');
+//				wait = 60;
+//			} else {
+//				obj.addClass('got');
+//				obj.html(wait + '秒后重新获取');
+//				wait--;
+//				setTimeout(function() {
+//					timer(obj);
+//				}, 1000)
+//			}
+//		}
 	});
 	$("#registerBtn").click(function() {
 		/*操作提示*/
 		var phone = $('input[name=registerPhone]').val();
-		var imgcode = $('input[name=registerImgcode]').val();
-		var vcode = $('input[name=registerVcode]').val();
+//		var imgcode = $('input[name=registerImgcode]').val();
+//		var vcode = $('input[name=registerVcode]').val();
 		var password = $('input[name=registerPassword]').val();
 		var repassword = $('input[name=registerRepassword]').val();
 		var legal = $('input[name=legal]').val();
@@ -161,14 +161,14 @@ $(document).ready(function() {
 			$("#registerTip").html('请输入手机号码');
 			return false;
 		}
-		//		if(!imgcode) {
-		//			$("#registerTip").html('请输入验证码');
-		//			return false;
-		//		}
-		//		if(!vcode) {
-		//			$("#registerTip").html('请输入手机验证码');
-		//			return false;
-		//		}
+//		if(!imgcode) {
+//			$("#registerTip").html('请输入验证码');
+//			return false;
+//		}
+//		if(!vcode) {
+//			$("#registerTip").html('请输入手机验证码');
+//			return false;
+//		}
 		if(!password) {
 			$("#registerTip").html('请输入密码');
 			return false;
@@ -192,7 +192,7 @@ $(document).ready(function() {
 			dataType: 'json',
 			data: {
 				'phone': phone,
-				'vcode': vcode,
+//				'vcode': vcode,
 				'password': password,
 				'repassword': repassword,
 				'legal': legal,
@@ -213,7 +213,7 @@ $(document).ready(function() {
 	$('#loginBtn').click(function(event) {
 		event.preventDefault();
 		var phone = $('input[name=loginPhone]').val();
-		var imgcode = $('input[name=loginImgcode]').val();
+//		var imgcode = $('input[name=loginImgcode]').val();
 		var password = $('input[name=loginPassword]').val();
 		var role = $('a[name=role].hidden').attr('value');
 		var remember = 0;
@@ -238,7 +238,7 @@ $(document).ready(function() {
 				'phone': phone,
 				'password': password,
 				'remember': remember,
-				'role': role
+				'role': role,
 			},
 			success: function(res) {
 				if(res.errno != 0) {
@@ -256,84 +256,94 @@ $(document).ready(function() {
 	/* 手机验证码*/
 	$("#pwdVcodeBtn").click(function() {
 		if($(this).hasClass('got')) {
-			return;
+			return false;
 		}
 		var phone = $('input[name=pwdPhone]').val();
-		var imgcode = $('input[name=pwdImgcode]').val();
+//		var imgcode = $('input[name=pwdImgcode]').val();
 		if(!phone) {
 			$("#forgotpwdTip").html('请输入手机号码');
-			return;
+			return false;
 		}
-		//		if(!imgcode) {
-		//			$("#forgotpwdTip").html('请输入图形验证码');
-		//			return;
-		//		}
-		$("#forgotpwdTip").html('');
-		$.ajax({
-			url: '/sso/vcode',
-			type: 'post',
-			dataType: 'json',
-			data: {
-				'phone': phone,
-				'imgcode': imgcode,
-				'thing': 'register'
-			},
-			success: function(res) {
-				if(res.errno) {
-					$("#forgotpwdTip").html(res.errmsg);
-					return;
-				} else {
-					$("#forgotpwdTip").html('验证码发送成功');
-					timer($('#pwdVcodeBtn'));
-				}
-			}
-		});
-		$("#forgotpwdTip").html('正在发送...');
-		var wait = 60;
-
-		function timer(obj) {
-			if(wait == 0) {
-				obj.removeClass('got');
-				obj.html('获取验证码');
-				wait = 60;
-			} else {
-				obj.addClass('got');
-				obj.html(wait + '秒后重新获取');
-				wait--;
-				setTimeout(function() {
-					timer(obj);
-				}, 1000)
-			}
-		}
+//		if(!imgcode) {
+//			$("#forgotpwdTip").html('请输入图形验证码');
+//			return;
+//		}
+//		$("#forgotpwdTip").html('');
+//		$.ajax({
+//			url: '/sso/vcode',
+//			type: 'post',
+//			dataType: 'json',
+//			data: {
+//				'phone': phone,
+//				'imgcode': imgcode,
+//				'thing': 'register'
+//			},
+//			success: function(res) {
+//				if(res.errno) {
+//					$("#forgotpwdTip").html(res.errmsg);
+//					return;
+//				} else {
+//					$("#forgotpwdTip").html('验证码发送成功');
+//					timer($('#pwdVcodeBtn'));
+//				}
+//			}
+//		});
+//		$("#forgotpwdTip").html('正在发送...');
+//		var wait = 60;
+//
+//		function timer(obj) {
+//			if(wait == 0) {
+//				obj.removeClass('got');
+//				obj.html('获取验证码');
+//				wait = 60;
+//			} else {
+//				obj.addClass('got');
+//				obj.html(wait + '秒后重新获取');
+//				wait--;
+//				setTimeout(function() {
+//					timer(obj);
+//				}, 1000)
+//			}
+//		}
 	});
 	$("#forgotpwdBtn").click(function() {
 		/*操作提示*/
 		var phone = $('input[name=pwdPhone]').val();
 //		var imgcode = $('input[name=pwdImgcode]').val();
 //		var vcode = $('input[name=pwdVcode]').val();
-		var password = $('input[name=pwdPassword]').val();
-		var repassword = $('input[name=pwdRepassword]').val();
+		var rpassword = $('input[name=pwdRPassword]').val();
+		var newpassword = $('input[name=pwdNewPassword]').val();
+		var renewpassword = $('input[name=pwdReNewpassword]').val();
 		if(!phone) {
 			$("#forgotpwdTip").html('请输入手机号码');
 			return false;
 		}
-		//		if(!imgcode) {
-		//			$("#forgotpwdTip").html('请输入验证码');
-		//			return false;
-		//		}
-		//		if(!vcode) {
-		//			$("#forgotpwdTip").html('请输入手机验证码');
-		//			return false;
-		//		}
-		if(!password) {
-			$("#forgotpwdTip").html('请输入密码');
+		if(!rpassword) {
+			$("#forgotpwdTip").html('请输入原密码')
 			return false;
 		}
-		if(!repassword) {
-			$("#forgotpwdTip").html('请确认密码');
+		if(password != rpassword) {
+			$("#forgotpwdTip").html('原密码错误')
 			return false;
 		}
-		if(password != repassword) {
+//		if(!imgcode) {
+//			$("#forgotpwdTip").html('请输入验证码');
+//			return false;
+//		}
+//		if(!vcode) {
+//			$("#forgotpwdTip").html('请输入手机验证码');
+//			return false;
+//		}
+		if(!newpassword) {
+			$("#forgotpwdTip").html('请输入新密码');
+			return false;
+		}
+		if(!renewpassword) {
+			$("#forgotpwdTip").html('请确认新密码');
+			return false;
+		}
+		
+		if(newpassword != renewpassword) {
 			$("#forgotpwdTip").html('密码不一致');
 			return false;
 		}
@@ -345,9 +355,10 @@ $(document).ready(function() {
 			dataType: 'json',
 			data: {
 				'phone': phone,
-				'vcode': vcode,
-				'password': password,
-				'repassword': repassword
+//				'vcode': vcode,
+                'rpassword': rpassword,
+				'newpassword': newpassword,
+				'renewpassword': renewpassword,
 			},
 			success: function(res) {
 				if(res.errno != 0) {
