@@ -309,8 +309,8 @@ $(document).ready(function() {
 	$("#forgotpwdBtn").click(function() {
 		/*操作提示*/
 		var phone = $('input[name=pwdPhone]').val();
-		var imgcode = $('input[name=pwdImgcode]').val();
-		var vcode = $('input[name=pwdVcode]').val();
+//		var imgcode = $('input[name=pwdImgcode]').val();
+//		var vcode = $('input[name=pwdVcode]').val();
 		var password = $('input[name=pwdPassword]').val();
 		var repassword = $('input[name=pwdRepassword]').val();
 		if(!phone) {
