@@ -39,7 +39,7 @@
 				<div class="form-group pst-relative drop-select-input-box">
 					<div class="input-box">
 						<i class="input-ico ico-phone"></i> <input id="loginPhone"
-							required="required" name="loginPhone" value="" type="text"
+							required="required" name="puser" value="" type="text"
 							class="form-control" placeholder="手机号">
 					</div>
 
@@ -47,7 +47,7 @@
 				<div class="form-group">
 					<div class="input-box">
 						<i class="input-ico ico-pwd"></i> <input id="loginPassword"
-							required="required" value="" name="loginPassword" type="password"
+							required="required" value="" name="ppw" type="password"
 							class="form-control" placeholder="密码">
 					</div>
 				</div>

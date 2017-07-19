@@ -60,4 +60,6 @@ public interface Personal_userMapper {
 	 * @return
 	 */
 	Personal_user selectByPname(String pname);
+	
+	Personal_user AlterPUserPassword(String pusername,String ppw);
 }

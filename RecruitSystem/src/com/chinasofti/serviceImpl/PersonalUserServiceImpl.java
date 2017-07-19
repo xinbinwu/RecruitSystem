@@ -81,6 +81,7 @@ public class PersonalUserServiceImpl implements PersonalUserService {
 	@Override
 	public Personal_user checkLogin(String username, String password) {
 		personal_user = personal_userMapper.selectByPname(username);
+		System.out.println("username"+username+",password"+password);
 		if (personal_user != null && personal_user.getPpwd().equals(password)) {
 			return personal_user;
 		}

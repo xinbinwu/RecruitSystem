@@ -196,4 +196,6 @@
 		<include refid="Base_Column_List" />
 		from personal_user
 	</select>
+	
+	<update id="AlterPUserPassword" parameterType="com.chinasofti.model.Personal_user">  </update>
 </mapper>
