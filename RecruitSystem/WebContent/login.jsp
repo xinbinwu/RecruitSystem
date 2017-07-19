@@ -33,6 +33,7 @@
 		<div class="sso-form sso-login" style="display: block;">
 			<font color="blue">${RegisterSuccessmessage}</font>
 			<h3 id="login_title">登录 My Job</h3>
+			<font color="red">${LoginFailedMessage}</font>
 			<div id="loginTip" class="tip-error"></div>
 			<!-- tip-error没有提示显示为空，不需要隐藏 -->
 			<form style="width: 350px" action="login.action" method="post">
@@ -57,8 +58,10 @@
 							name="remember" value="1"> 记住我
 						</label>
 					</div>
-					<a href="com_login.jsp" name="role" value="1" title="企业登录">企业登录</a>
-					<a href="admin_login.jsp" name="role" value="-1" title="登录">管理员登录</a>
+					<br> <input type="radio" name="type" value="个人"
+						checked="checked" />个人用户登录<input type="radio" name="type"
+						value="企业" />企业用户登录
+
 				</div>
 				<input class="btn sso-btn" type="submit" value="登录" />
 			</form>

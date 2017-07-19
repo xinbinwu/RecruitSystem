@@ -62,8 +62,9 @@
 							placeholder="确认密码">
 					</div>
 				</div>
-				<a href="com_register.jsp" name="role" value="1" title="企业登录">企业注册</a>
-				<input class="btn sso-btn" type="submit" value="注册" />
+				<input type="radio" name="type" value="个人" checked="checked" />个人用户注册
+				<input type="radio" name="type" value="企业" />企业用户注册 <input
+					class="btn sso-btn" type="submit" value="注册" />
 			</form>
 			<div class="tip-text align-center">
 				<span> 已有账号?<a href="login.jsp" class="login-link">立即登录</a></span>
