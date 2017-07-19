@@ -31,7 +31,6 @@
 	<div class="sso-box">
 		<!-- 登录 -->
 		<div class="sso-form sso-login" style="display: block;">
-			<font color="blue">${RegisterSuccessmessage}</font>
 			<h3 id="login_title">登录 My Job</h3>
 			<font color="red">${LoginFailedMessage}</font>
 			<div id="loginTip" class="tip-error"></div>
