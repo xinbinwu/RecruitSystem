@@ -609,7 +609,7 @@
 		</div>
 	</div>
 	<!-- banner end -->
-	<script type="text/javascript" src="/static/js/banner.js"></script>
+	<script type="text/javascript" src="js/banner.js"></script>
 	<script type="text/javascript">
 		$(function() {
 			$(".banner").swBanner();
