@@ -35,7 +35,7 @@
 			<h3 id="login_title">登录 My Job</h3>
 			<div id="loginTip" class="tip-error"></div>
 			<!-- tip-error没有提示显示为空，不需要隐藏 -->
-			<form style="width: 350px">
+			<form style="width: 350px" action="login.action" method="post">
 				<div class="form-group pst-relative drop-select-input-box">
 					<div class="input-box">
 						<i class="input-ico ico-phone"></i> <input id="loginPhone"
@@ -60,7 +60,7 @@
 					<a href="com_login.jsp" name="role" value="1" title="企业登录">企业登录</a>
 					<a href="admin_login.jsp" name="role" value="-1" title="登录">管理员登录</a>
 				</div>
-				<button class="btn sso-btn" id="loginBtn" value="/">登录</button>
+				<input class="btn sso-btn" type="submit" value="登录" />
 			</form>
 
 			<div class="tip-text">
