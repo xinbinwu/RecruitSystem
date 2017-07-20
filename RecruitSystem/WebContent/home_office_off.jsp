@@ -43,30 +43,12 @@
 							<a href="#" class="switch-btn" data-toggle="modal" data-target="#CityModal">切换城市</a>
 						</div>
 
-						<!-- 登录显示 -->
-						<div class="pull-right userbox">
-							<span class="user-name">18061997880</span>
-							<ul class="user-menu">
-								<!-- 求职者个人导航 start -->
-								<li>
-									<a href="/employee/edit_resume">我的简历</a>
-								</li>
-								<li>
-									<a href="/interact/employee_deliver">投递记录</a>
-								</li>
-								<li>
-									<a href="/interact/employee_favorite">收藏职位</a>
-								</li>
-								<li>
-									<a href="/index/edit_pwd">修改密码</a>
-								</li>								
-								<li>
-									<a href="/sso/logout">退出登录</a>
-								</li>
-								<!-- 求职者个人导航 end -->
-							</ul>
+						<!-- 未登录显示 -->
+						<div class="pull-right ">
+							<a href="register.jsp" class="top-btn">注册</a>
+							<a href="login.jsp" class="top-btn">登录</a>
 						</div>
-						<!-- 登录显示 end -->
+						<!-- 未登录显示 end -->
 
 					</div>
 				</div>
@@ -80,7 +62,7 @@
 						<div class="nav-search-box clearfix">
 							<form method="get" action="/job/search">
 								<div class="search-input">
-									<input id="keyword" name="keyword" type="text" value="" placeholder='职位 公司' />
+									<input id="keyword" name="keyword" type="text" value="" placeholder='' />
 								</div>
 								<input type="hidden" name="is_tech" value="1" />
 								<button type="submit" class="btn search-box-btn">搜索</button>
@@ -93,7 +75,7 @@
 					<div class="inner">
 						<ul class="clearfix">
 							<!-- 求职者菜单 start -->
-							<li>
+						<li>
 								<a class="current" href="index_off.jsp">首页</a>
 							</li>
 							<li>
@@ -559,225 +541,24 @@
 			</div>
 		</div>
 		<!-- 模态框（Modal） end-->
-		<div class="inner main-container" id="option-keyword" default-value="职位 公司" value="">
-			<h5 class="content-title"> 
-          <a href="/interact/employee_deliver" class="content-tab current" data-id="technical_job">技术职位</a>
-          <a href="/interact/employee_deliver/1" class="content-tab " data-id="other_job">其他职位</a>
-        </h5>
-			<div class="content-tab-box" data-id="technical_job" style="display: block;">
-				<!-- 筛选 -->
-				<div class="filter-box" value="" style="margin-bottom:0;">
-					<dl class="clearfix" id="time-t">
-						<dt>投递时间：</dt>
-						<dd>
-							<a href="#" class="current" value="0">不限</a>
-							<a href="#" value="1">今天</a>
-							<a href="#" value="2">一周内</a>
-							<a href="#" value="3">一个月内</a>
-							<a href="#" value="4">三个月内</a>
-							<a href="#" value="5">三个月以上</a>
-						</dd>
-					</dl>
-				</div>
-				<div class="deliver-box clearfix">
-					<!-- 左侧 -->
-					<div class="content-s deliver-box-l pull-left">
-						<h5 class="deliver-filter">
-     					<span class="deliver-filter-txt"></span>
-     					<ul class="deliver-filter-box">
-     						<li class="current" value="0"></li>
-     						<li value="3"></li>
-     						<li value="1"></li>
-     					</ul>
-     				</h5>
-						<div class="deliver-box-l-content">
-							<div class="job-list">
-							</div>
-						</div>
-					</div>
-					<!-- 左侧 end -->
-					<!-- 右侧 -->
-					<div class="deliver-box-r pull-right" id="init-content">
-						<h5>
-     					<span class="location pull-right"></span>
-     				</h5>
-						<div class="deliver-box-r-content">
-						</div>
-					</div>
-					<!-- 右侧 end -->
-
-					<!-- 右侧空白模板 -->
-					<div class="deliver-box-r pull-right hidden" id="no-content">
-						<h5>
-						<span class="location pull-right"></span>
-					</h5>
-						<div class="deliver-box-r-content">
-						</div>
-					</div>
-					<!-- 右侧空白模板 -->
-
-					<!-- 右侧模板 -->
-					<div class="deliver-box-r pull-right hidden" id="job-content">
-						<h5>
-						<span class="location pull-right">{deliver_at} 投递</span>
-					</h5>
-						<div class="deliver-box-r-content">
-							<div class="job-banner">
-								<div class="clearfix">
-									<div class="job-banner-info pull-left">
-										<p class="title">{job_title}</p>
-										<p>
-											<span class="star">{salary_low}k-{salary_high}k</span>
-											<span>{exp}</span>
-											<span>{edu}</span>
-										</p>
-										<p class="notes">{created_at} 发布</p>
-									</div>
-									<a href="#" class="job-banner-info pull-right clearfix">
-										<div class="job-banner-logo pull-right">
-											<img {logo} alt="">
-										</div>
-										<div class="pull-right">
-											<p class="title">{company}</p>
-											<p>
-												<span>{area}</span>
-												<span>{finance}</span>
-												<span>{scale}</span>
-											</p>
-											<p class="notes">{city}{district}</p>
-										</div>
-									</a>
-								</div>
-							</div>
-							<div style="padding:10px;">
-								<div class="detail-list-box">
-									<h5>职位描述</h5>
-									<div class="detail-content">
-										{content}
-									</div>
-								</div>
-								<div class="detail-list-box">
-									<h5>公司地址</h5>
-									<div class="detail-content">{city}{district}{address}</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- 右侧模板 end -->
-				</div>
-			</div>
-		</div>
-
-		<script>
-			$(".deliver-filter-box li").click(function(event) {
-				$(this).addClass('current').siblings().removeClass('current');
-				$(".deliver-filter-txt").text($(this).text());
-				$(this).parent().hide();
-				var time_t = $('#time-t a.current').attr('value');
-				var deliver_status = $(this).attr('value');
-				$('.job-item').each(function() {
-					if($(this).attr('deliver-status') == deliver_status && ($(this).attr('time-t') == time_t || time_t == 0)) {
-						$(this).removeClass('hidden').addClass('visible');
-					} else {
-						$(this).removeClass('visible').addClass('hidden');
-					}
-				});
-				var job_content = $('#no-content').html();
-				$('#init-content').html(job_content);
-				$('.job-item.visible').eq(0).trigger("click");
-			});
-
-			$('.job-item').click(function() {
-				$(this).addClass('current').siblings().removeClass('current');
-				var jobId = $(this).attr('id');
-				var deliver_at = $(this).attr('deliver-at');
-				$.ajax({
-					url: '/job/getJobDetail',
-					type: 'GET',
-					dataType: 'json',
-					data: {
-						'jid': jobId
-					},
-					success: function(res) {
-						if(res.data.result == 1) {
-							if(JSON.stringify(res.data.job) != '{}') {
-								var $job_content = $('#job-content').html();
-								res.data.job.deliver_at = deliver_at;
-								var job_content = tplReplace($job_content, res.data.job);
-								$('#init-content').html(job_content);
-							} else {
-								var job_content = $('#no-content').html();
-								$('#init-content').html(job_content);
-							}
-						} else {
-							return;
-						}
-					}
-				});
-				return false;
-			});
-
-			function tplReplace(html, data) {
-				var content = '';
-				if(JSON.stringify(data.job.content) !== '{}') {
-					for(var i = 0; i < data.job.content.length; i++) {
-						content += '<p>' + data.job.content[i] + '</p>';
-					}
-				}
-				var new_html = html
-					.replace('{deliver_at}', data.deliver_at)
-					.replace('{job_title}', data.job.job_title)
-					.replace('{jid}', data.job.jid)
-					.replace('{salary_low}', data.job.salary_low)
-					.replace('{salary_high}', data.job.salary_high)
-					.replace('{exp}', data.job.exp)
-					.replace('{edu}', data.job.edu)
-					.replace('{created_at}', data.job.created_at)
-					.replace('{logo}', 'src="' + data.employer.logo + '"')
-					.replace('{company}', data.employer.company)
-					.replace('{area}', data.employer.area)
-					.replace('{finance}', data.employer.finance)
-					.replace('{scale}', data.employer.scale)
-					.replace('{content}', content)
-					.replace('{city}', data.employer.city)
-					.replace('{district}', data.employer.district)
-					.replace('{city}', data.employer.city)
-					.replace('{district}', data.employer.district)
-					.replace('{address}', data.employer.address);
-				return new_html;
+		<style type="text/css">
+			.home_bg {
+				width: 100%;
+				background: #6ac8e4;
+				overflow: hidden;
 			}
-			$('#time-t a').click(function() {
-				var time_t = $(this).attr('value');
-				$(this).addClass('current').siblings().removeClass('current');
-				var status0 = 0;
-				var status3 = 0;
-				var status1 = 0;
-				$('.job-item').each(function() {
-					if(time_t == 0 || time_t == $(this).attr('time-t')) {
-						$(this).removeClass('hidden').addClass('visible');
-					} else {
-						$(this).removeClass('visible').addClass('hidden');
-					}
-				});
-				$('.job-item.visible').each(function() {
-					if($(this).attr('deliver-status') == 0) {
-						status0++;
-					} else if($(this).attr('deliver-status') == 3) {
-						status3++;
-					} else if($(this).attr('deliver-status') == 1) {
-						status1++;
-					}
-				});
-				$(".deliver-filter-box li[value='0']").html('待查看(' + status0 + ')');
-				$(".deliver-filter-box li[value='3']").html('有意向(' + status3 + ')');
-				$(".deliver-filter-box li[value='1']").html('不合适(' + status1 + ')');
-				$(".deliver-filter-txt").html('待查看(' + (status0) + ')');
-				var job_content = $('#no-content').html();
-				$('#init-content').html(job_content);
-				$(".deliver-filter-box li").eq(0).trigger("click");
-				//$('.job-item.visible').eq(0).trigger("click");
-			});
-			$('#time-t a').eq(0).trigger("click");
+			
+			.home_bg img {
+				display: block;
+				margin: 0 auto;
+			}
+		</style>
+		<div class="home_bg" id="option-keyword" default-value="职位 公司" value="">
+			<img src="img/home_bg.jpg" alt="">
+		</div>
+		<script type="text/javascript">
+			$(".home_bg").height($(window).height() - 284);
+			$(".home_bg img").height($(".home_bg").height());
 		</script>
 		<!-- 底部 -->
 		<div class="siteFooter">

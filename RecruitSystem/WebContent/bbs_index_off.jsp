@@ -11,7 +11,7 @@
 		<meta name="renderer" content="webkit" />
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" media="screen">
-		<link rel="stylesheet" type="text/css" href="dist/css/wangEditor.min.css">
+		<link rel="stylesheet" type="text/css" href="css/wangEditor.min.css">
 		<link rel="stylesheet" type="text/css" href="css/main.css">
 		<script src="js/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
@@ -43,30 +43,13 @@
 							<a href="#" class="switch-btn" data-toggle="modal" data-target="#CityModal">切换城市</a>
 						</div>
 
-						<!-- 登录显示 -->
-						<div class="pull-right userbox">
-							<span class="user-name">18061997880</span>
-							<ul class="user-menu">
-								<!-- 求职者个人导航 start -->
-								<li>
-									<a href="/employee/edit_resume">我的简历</a>
-								</li>
-								<li>
-									<a href="/interact/employee_deliver">投递记录</a>
-								</li>
-								<li>
-									<a href="/interact/employee_favorite">收藏职位</a>
-								</li>
-								<li>
-									<a href="/index/edit_pwd">修改密码</a>
-								</li>
-								<li>
-									<a href="/sso/logout">退出登录</a>
-								</li>
-								<!-- 求职者个人导航 end -->
-							</ul>
+						<!-- 未登录显示 -->
+						<div class="pull-right ">
+							<a href="register.jsp" class="top-btn">注册</a>
+							<a href="login.jsp" class="top-btn">登录</a>
 						</div>
-						<!-- 登录显示 end -->
+						</div>
+						<!-- 未登录显示 end -->
 
 					</div>
 				</div>

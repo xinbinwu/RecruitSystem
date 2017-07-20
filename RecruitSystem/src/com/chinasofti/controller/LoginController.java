@@ -42,7 +42,7 @@ public class LoginController {
 			if (null != user) {
 				mav.addObject("username", username);
 				mav.addObject("password", password);
-				mav.setViewName("myjob");
+				mav.setViewName("index");
 				return mav;
 			} else {
 				mav.setViewName("login");
@@ -54,7 +54,7 @@ public class LoginController {
 			if (cuser != null && password.equals(cuser.getCpwd())) {
 				mav.addObject("username", username);
 				mav.addObject("password", password);
-				mav.setViewName("myjob");
+				mav.setViewName("index");
 				return mav;
 			} else {
 				mav.setViewName("login");

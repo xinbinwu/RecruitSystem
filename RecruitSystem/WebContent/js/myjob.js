@@ -821,7 +821,7 @@ $(document).ready(function() {
 			return false;
 		}
 		$.ajax({
-			url: '/bbs/edit_user',
+			url: 'myResume.action',
 			type: 'post',
 			dataType: 'json',
 			data: {
