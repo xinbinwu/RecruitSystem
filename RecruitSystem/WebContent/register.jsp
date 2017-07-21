@@ -61,9 +61,10 @@
 							required="required" type="password" class="form-control"
 							placeholder="确认密码">
 					</div>
-				</div>
-				<input type="radio" name="type" value="个人" checked="checked" />个人用户注册
-				<input type="radio" name="type" value="企业" />企业用户注册 <input
+				</div >
+				<div style="margin-left:70px;margin-top:20px">
+				<input type="radio" name="type" value="个人" checked="checked" />个人用户注册&nbsp;&nbsp;&nbsp;
+				<input type="radio" name="type" value="企业" />企业用户注册 </div><input
 					class="btn sso-btn" type="submit" value="注册" />
 			</form>
 			<div class="tip-text align-center">

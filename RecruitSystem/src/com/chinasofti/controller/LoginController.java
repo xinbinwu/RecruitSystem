@@ -3,6 +3,7 @@ package com.chinasofti.controller;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -40,9 +41,10 @@ public class LoginController {
 			user = service.checkLogin(username, password);
 
 			if (null != user) {
-				mav.addObject("username", username);
-				mav.addObject("password", password);
+				HttpSession session = request.getSession();
+				session.setAttribute("user", user);
 				mav.setViewName("index");
+				
 				return mav;
 			} else {
 				mav.setViewName("login");
@@ -54,6 +56,10 @@ public class LoginController {
 			if (cuser != null && password.equals(cuser.getCpwd())) {
 				mav.addObject("username", username);
 				mav.addObject("password", password);
+				
+				HttpSession session = request.getSession();
+				session.setAttribute("cuser", cuser);
+				
 				mav.setViewName("index");
 				return mav;
 			} else {

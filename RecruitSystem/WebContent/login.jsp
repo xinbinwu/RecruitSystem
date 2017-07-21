@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 
@@ -58,11 +59,14 @@
 						</label>
 					</div>
 					<br> <input type="radio" name="type" value="个人"
-						checked="checked" />个人用户登录<input type="radio" name="type"
+						checked="checked" />个人用户登录&nbsp;&nbsp;&nbsp;<input type="radio" name="type"
 						value="企业" />企业用户登录
 
+
 				</div>
-				<input class="btn sso-btn" type="submit" value="登录" />
+				<div style="margin-top: 20px">
+					<input class="btn sso-btn" type="submit" value="登录" />
+				</div>
 			</form>
 
 			<div class="tip-text">
