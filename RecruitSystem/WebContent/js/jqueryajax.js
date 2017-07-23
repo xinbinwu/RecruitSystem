@@ -18,7 +18,8 @@ $("document").ready(function() {
 			},
 			// 请求成功后的回调函数。 data 为服务器返回的数据
 			success : function(res) {
-				
+				$("#hidebasic-info-text").hide();
+				$(".info-view basic-info").show();
 				
 				 
 			}
