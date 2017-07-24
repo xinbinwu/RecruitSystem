@@ -1,3 +1,4 @@
+<%@page import="com.chinasofti.model.Personal_user"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -41,11 +42,9 @@
 		<div class="header">
 			<div class="top">
 				<div class="inner clearfix">
-					<div class="pull-left">
-						<span class="city-text" id="city" value="110000">[北京市]</span> <a
-							href="#" class="switch-btn" data-toggle="modal"
-							data-target="#CityModal">切换城市</a>
-					</div>
+					<%
+						Personal_user user = (Personal_user) session.getAttribute("user");
+					%>
 
 					<c:choose>
 						<c:when test="${! empty user  }">
@@ -84,16 +83,7 @@
 							src="img/myjob_logo.png" style="height: 84px" alt="">
 						</a>
 					</div>
-					<div class="nav-search-box clearfix">
-						<form method="get" action="/job/search">
-							<div class="search-input">
-								<input id="keyword" name="keyword" type="text" value=""
-									placeholder='职位 公司' />
-							</div>
-							<input type="hidden" name="is_tech" value="1" />
-							<button type="submit" class="btn search-box-btn">搜索</button>
-						</form>
-					</div>
+
 				</div>
 			</div>
 
@@ -147,52 +137,42 @@ span.value-field {
 				<div class="info-content" id="basic-info-text">
 					<div class="form-box hide2">
 						<form action="/employee/save_employee">
-							<input type="hidden" class="value-field" name="avatar" value="">
+							<input type="hidden" class="value-field" name="avatar" 
+								disabled=true>
 							<div class="form-group">
 								<label for="name">姓名</label> <input type="text"
 									class="form-control value-field" placeholder="姓名" name="name"
-									id="basic_name">
+									disabled=true id="basic_name" value="">
 							</div>
+
 							<div class="form-group">
-								<label for="sex">性别</label>
-								<div class="half-box">
-									<select class="select-normal value-field trans" name="gender"
-										id="basic_sex">
-										<option value="男">男</option>
-										<option value="女">女</option>
-									</select>
-								</div>
+								<label for="name">性别</label> <input type="text"
+									class="form-control value-field" placeholder="性别：男/女" 
+									name="sex" id="basic_sex" disabled=true  >
 							</div>
+
+
 							<div class="form-group">
 								<label for="name">年龄</label> <input type="text"
 									class="form-control value-field" placeholder="年龄" name="name"
-									id="basic_age">
+									id="basic_age" disabled=true>
 							</div>
 
 							<div class="form-group">
 								<label for="email">邮箱</label> <input type="text"
 									class="form-control value-field" placeholder="邮箱" name="email"
-									id="basic_email">
+									id="basic_email" disabled=true>
 							</div>
 
 							<div class="operation clearfix">
-								<input type="reset" class="btn cancel _j_cancel _j_cancel_basic"></input>
 								<p class="btn _j_save _j_save_basic" id="basic_saveAjax">保存</p>
+								<p class="btn cancel _j_cancel _j_cancel_basic"
+									id="basic_saveAjaxEdit">编辑</p>
 							</div>
 						</form>
 					</div>
 
-					<!--<div class="info-view basic-info">
-							${user.puname},${user.sex},${user.age},${user.email}
-							<p class="info-name value-field" data-field="name">${user.puname}</p>
-							<p class="info-view-text">
-								<span class="value-field trans" data-field="gender">${user.sex}</span>
-								<span id="birth_exhibition">${user.age}</span>
-							</p>
-							<p class="info-view-text">
-								<span class="value-field" data-field="email">${user.email}</span>
-							</p>
-						</div>-->
+
 
 				</div>
 
@@ -210,29 +190,26 @@ span.value-field {
 							<div class="form-group">
 								<label>学校名称</label> <input type="text"
 									class="form-control value-field" placeholder="学校名称"
-									name="where" id="save_sch_name">
+									name="where" id="save_sch_name" disabled=true>
 							</div>
 							<div class="form-group">
 								<label>专业名称</label> <input type="text"
 									class="form-control value-field" placeholder="专业名称"
-									name="title" id="save_maj_name">
-							</div>
-							<div class="form-group">
-								<label for="status">学历</label>
-								<div class="half-box">
-									<select name="content" class="select-normal value-field"
-										id="save_edu_name">
-										<option value="大专">大专</option>
-										<option value="本科">本科</option>
-										<option value="硕士">硕士</option>
-										<option value="博士">博士</option>
-									</select>
-								</div>
+									name="title" id="save_maj_name" disabled=true>
 							</div>
 
+							<div class="form-group">
+								<label>学历名称</label> <input type="text"
+									class="form-control value-field" placeholder="专业名称:大专/本科/硕士/博士"
+									name="title" id="save_edu_name" disabled=true>
+							</div>
+
+
+
 							<div class="operation clearfix">
-								<input type="reset" class="btn cancel _j_cancel _j_cancel_basic"></input>
 								<p class="btn _j_save _j_save_basic" id="edu_saveAjax">保存</p>
+								<p class="btn cancel _j_cancel _j_cancel_basic"
+									id="edu_saveAjaxEdit">编辑</p>
 							</div>
 						</form>
 					</div>
@@ -257,26 +234,28 @@ span.value-field {
 							<div class="form-group">
 								<label>公司名称</label> <input type="text"
 									class="form-control value-field" placeholder="公司名称"
-									name="where" id="save_com_name">
+									name="where" id="save_com_name" disabled=true>
 							</div>
 							<div class="form-group">
 								<label>职位名称</label> <input type="text"
 									class="form-control value-field" placeholder="职位名称"
-									name="title" id="save_job_name">
+									name="title" id="save_job_name" disabled=true>
 							</div>
 
 							<div class="form-group">
 								<label>工作内容</label>
 								<div>
-									<textarea class="form-control value-field" rows="4"
-										name="content" id="save_job_cotent"></textarea>
+									<input class="form-control value-field" rows="4" name="content"
+										id="save_job_cotent" disabled=true></input>
 								</div>
 							</div>
 
 							<div class="operation clearfix">
-								<input type="reset" class="btn cancel _j_cancel _j_cancel_basic"></input>
 								<p class="btn _j_save _j_save_basic" id="work_exper_saveAjax">
 									保存</p>
+								<p class="btn cancel _j_cancel _j_cancel_basic"
+									id="work_exper_saveAjaxEdit">编辑</p>
+
 
 							</div>
 						</form>

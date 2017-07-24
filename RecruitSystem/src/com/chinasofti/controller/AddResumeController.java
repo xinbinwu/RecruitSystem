@@ -3,18 +3,15 @@ package com.chinasofti.controller;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.websocket.Session;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.chinasofti.model.Edu_background;
 import com.chinasofti.model.Personal_user;
-import com.chinasofti.model.Work_experience;
-import com.chinasofti.service.EduBackgroundService;
 import com.chinasofti.service.PersonalUserService;
-import com.chinasofti.service.Work_experienceService;
 
 @Controller
 public class AddResumeController {
@@ -22,16 +19,14 @@ public class AddResumeController {
 	private PersonalUserService service;
 	@Resource
 	private Personal_user user;
+
+	@Resource
+	private Personal_user userSelectByName;
+
+	@Resource
+	private Personal_user userSession;
 	@Resource
 	private ModelAndView mav;
-	@Resource
-	private Edu_background edu;
-	@Resource
-	private EduBackgroundService eduBackgroundService;
-	@Resource
-	private Work_experience work_experience;
-	@Resource
-	private Work_experienceService work_experienceService;
 
 	@RequestMapping("/save_employee.action")
 	public String save_employee(HttpServletRequest request, HttpServletResponse response, Model model) {
@@ -46,7 +41,14 @@ public class AddResumeController {
 		user.setSex(basic_sex);
 		user.setAge(Integer.parseInt(basic_age));
 		user.setEmail(basic_email);
-		service.insertSelective(user);
+
+		userSession = (Personal_user) request.getSession().getAttribute("user");
+		String pname = userSession.getPname();
+		System.out.println("userSession:" + pname);
+		Personal_user userSelectByName = service.selectByPname(pname);
+		System.out.println(userSelectByName);
+
+		service.updateByPnameSelective(basic_name, basic_sex, Integer.parseInt(basic_age), basic_email, pname);
 
 		model.addAttribute("user", user);
 		return "MyResume";
@@ -58,10 +60,15 @@ public class AddResumeController {
 		String save_sch_name = request.getParameter("save_sch_name");
 		String save_maj_name = request.getParameter("save_maj_name");
 		String save_edu_name = request.getParameter("save_edu_name");
-		edu.setEdu(save_edu_name);
-		edu.setMajName(save_maj_name);
-		edu.setSchName(save_sch_name);
-		eduBackgroundService.insertSelective(edu);
+
+		System.out.println(save_sch_name + "  " + save_maj_name + "  " + save_edu_name);
+
+
+		userSession = (Personal_user) request.getSession().getAttribute("user");
+		String pname = userSession.getPname();
+		System.out.println("userSession:" + pname);
+
+		service.updateEduSelective(save_sch_name, save_maj_name, save_edu_name, pname);
 
 	}
 
@@ -70,10 +77,14 @@ public class AddResumeController {
 		String save_com_name = request.getParameter("save_com_name");
 		String save_job_name = request.getParameter("save_job_name");
 		String save_job_cotent = request.getParameter("save_job_cotent");
-		work_experience.setComName(save_com_name);
-		work_experience.setJobName(save_job_name);
-		work_experience.setWorkContent(save_job_cotent);
-		work_experienceService.insertSelective(work_experience);
+
+		System.out.println(save_com_name + "  " + save_job_name + "  " + save_job_cotent);
+
+		userSession = (Personal_user) request.getSession().getAttribute("user");
+		String pname = userSession.getPname();
+		System.out.println("userSession:" + pname);
+
+		service.updateWorkSelective(save_com_name, save_job_name, save_job_cotent, pname);
 
 	}
 

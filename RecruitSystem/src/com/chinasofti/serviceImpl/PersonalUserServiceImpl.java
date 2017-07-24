@@ -45,21 +45,15 @@ public class PersonalUserServiceImpl implements PersonalUserService {
 	}
 
 	@Override
-	public int insertSelective(Personal_user record) {
-		// TODO Auto-generated method stub
-		return this.personal_userMapper.insertSelective(record);
-	}
-
-	@Override
 	public Personal_user selectByPrimaryKey(Integer pid) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public int updateByPrimaryKeySelective(Personal_user record) {
+	public int updateByPnameSelective(String puname, String sex, Integer age, String email, String pname) {
 		// TODO Auto-generated method stub
-		return 0;
+		return this.personal_userMapper.updateByPnameSelective(puname, sex, age, email, pname);
 	}
 
 	@Override
@@ -81,11 +75,35 @@ public class PersonalUserServiceImpl implements PersonalUserService {
 	@Override
 	public Personal_user checkLogin(String username, String password) {
 		personal_user = personal_userMapper.selectByPname(username);
-		System.out.println("username"+username+",password"+password);
+		System.out.println("username" + username + ",password" + password);
 		if (personal_user != null && personal_user.getPpwd().equals(password)) {
 			return personal_user;
 		}
 		return null;
+	}
+
+	@Override
+	public int insertSelective(Personal_user record, String pname) {
+		// TODO Auto-generated method stub
+		return this.personal_userMapper.insertSelective(record, pname);
+	}
+
+	@Override
+	public int insertSelectiveRegister(Personal_user puser) {
+		return this.personal_userMapper.insertSelectiveRegister(puser);
+
+	}
+
+	@Override
+	public int updateEduSelective(String schName, String majName, String edu, String pname) {
+		// TODO Auto-generated method stub
+		return this.personal_userMapper.updateEduSelective(schName, majName, edu, pname);
+	}
+
+	@Override
+	public int updateWorkSelective(String comName, String jobName, String workContent, String pname) {
+		// TODO Auto-generated method stub
+		return this.personal_userMapper.updateWorkSelective(comName, jobName, workContent, pname);
 	}
 
 }

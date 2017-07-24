@@ -40,7 +40,7 @@ public class RegisterController {
 				puser.setPname(username);
 				puser.setPpwd(password);
 
-				if (pus.insertSelective(puser) > 0) {
+				if (pus.insertSelectiveRegister(puser) > 0) {
 					System.out.println("注册成功！");
 					mav.addObject("username", username);
 					mav.addObject("password", username);
