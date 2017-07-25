@@ -21,12 +21,26 @@ public class AddResumeController {
 	private Personal_user user;
 
 	@Resource
+	private Personal_user MyResumeUser;
+
+	@Resource
 	private Personal_user userSelectByName;
 
 	@Resource
 	private Personal_user userSession;
 	@Resource
 	private ModelAndView mav;
+
+	@RequestMapping("/MyResume.action")
+	public String MyResume(HttpServletRequest request, HttpServletResponse response, Model model) {
+		userSession = (Personal_user) request.getSession().getAttribute("user");
+		String pname = userSession.getPname();
+		MyResumeUser = service.selectByPname(pname);
+		System.out.println(MyResumeUser);
+		model.addAttribute("MyResumeUser", MyResumeUser);
+		return "MyResume";
+
+	}
 
 	@RequestMapping("/save_employee.action")
 	public String save_employee(HttpServletRequest request, HttpServletResponse response, Model model) {
@@ -62,7 +76,6 @@ public class AddResumeController {
 		String save_edu_name = request.getParameter("save_edu_name");
 
 		System.out.println(save_sch_name + "  " + save_maj_name + "  " + save_edu_name);
-
 
 		userSession = (Personal_user) request.getSession().getAttribute("user");
 		String pname = userSession.getPname();

@@ -23,4 +23,9 @@ public interface DeliverMapper {
 
 	int delectByUserIDComName(int id, String com_name);
 
+	Deliver selectByDoubleId(int pid, int jobId);
+	
+	List<Deliver> selectAllDeliverById(int id);
+	
+
 }

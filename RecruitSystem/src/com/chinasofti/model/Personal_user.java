@@ -242,7 +242,9 @@ public class Personal_user {
 	@Override
 	public String toString() {
 		return "Personal_user [pid=" + pid + ", pname=" + pname + ", ppwd=" + ppwd + ", puname=" + puname + ", sex="
-				+ sex + ", age=" + age + ", email=" + email + "]";
+				+ sex + ", age=" + age + ", eduId=" + eduId + ", schName=" + schName + ", majName=" + majName + ", edu="
+				+ edu + ", workId=" + workId + ", comName=" + comName + ", jobName=" + jobName + ", workContent="
+				+ workContent + ", email=" + email + "]";
 	}
 
 	public void setPid(Integer pid) {

@@ -53,7 +53,7 @@
 								<span class="user-name"> ${user.pname}</span>
 								<ul class="user-menu">
 									<!-- 求职者个人导航 start -->
-									<li><a href="MyResume.jsp">我的简历</a></li>
+									<li><a href="MyResume.action">我的简历</a></li>
 									<li><a href="DeliveryRecord.jsp">投递记录</a></li>
 									<li><a href="JobCollection.jsp">收藏职位</a></li>
 									<li><a href="changepassword.jsp">修改密码</a></li>
@@ -137,31 +137,32 @@ span.value-field {
 				<div class="info-content" id="basic-info-text">
 					<div class="form-box hide2">
 						<form action="/employee/save_employee">
-							<input type="hidden" class="value-field" name="avatar" 
+							<input type="hidden" class="value-field" name="avatar"
 								disabled=true>
 							<div class="form-group">
 								<label for="name">姓名</label> <input type="text"
 									class="form-control value-field" placeholder="姓名" name="name"
-									disabled=true id="basic_name" value="">
+									disabled=true id="basic_name" value=${MyResumeUser.puname} >
 							</div>
 
 							<div class="form-group">
 								<label for="name">性别</label> <input type="text"
-									class="form-control value-field" placeholder="性别：男/女" 
-									name="sex" id="basic_sex" disabled=true  >
+									class="form-control value-field" placeholder="性别：男/女"
+									value=${MyResumeUser.sex} name="sex" id="basic_sex" disabled=true>
 							</div>
 
 
 							<div class="form-group">
 								<label for="name">年龄</label> <input type="text"
-									class="form-control value-field" placeholder="年龄" name="name"
-									id="basic_age" disabled=true>
+									class="form-control value-field" placeholder="年龄"
+									id="basic_age" value=${MyResumeUser.age} disabled=true 
+									 ></input>
 							</div>
 
 							<div class="form-group">
 								<label for="email">邮箱</label> <input type="text"
-									class="form-control value-field" placeholder="邮箱" name="email"
-									id="basic_email" disabled=true>
+									class="form-control value-field" placeholder="邮箱"
+									value=${MyResumeUser.email} id="basic_email" disabled=true>
 							</div>
 
 							<div class="operation clearfix">
@@ -190,18 +191,18 @@ span.value-field {
 							<div class="form-group">
 								<label>学校名称</label> <input type="text"
 									class="form-control value-field" placeholder="学校名称"
-									name="where" id="save_sch_name" disabled=true>
+									value=${MyResumeUser.schName} id="save_sch_name" disabled=true>
 							</div>
 							<div class="form-group">
 								<label>专业名称</label> <input type="text"
 									class="form-control value-field" placeholder="专业名称"
-									name="title" id="save_maj_name" disabled=true>
+									value=${MyResumeUser.majName} id="save_maj_name" disabled=true>
 							</div>
 
 							<div class="form-group">
 								<label>学历名称</label> <input type="text"
 									class="form-control value-field" placeholder="专业名称:大专/本科/硕士/博士"
-									name="title" id="save_edu_name" disabled=true>
+									value=${MyResumeUser.edu} id="save_edu_name" disabled=true>
 							</div>
 
 
@@ -234,19 +235,19 @@ span.value-field {
 							<div class="form-group">
 								<label>公司名称</label> <input type="text"
 									class="form-control value-field" placeholder="公司名称"
-									name="where" id="save_com_name" disabled=true>
+									value=${MyResumeUser.comName} id="save_com_name" disabled=true>
 							</div>
 							<div class="form-group">
 								<label>职位名称</label> <input type="text"
 									class="form-control value-field" placeholder="职位名称"
-									name="title" id="save_job_name" disabled=true>
+									value=${MyResumeUser.jobName} id="save_job_name" disabled=true>
 							</div>
 
 							<div class="form-group">
 								<label>工作内容</label>
 								<div>
 									<input class="form-control value-field" rows="4" name="content"
-										id="save_job_cotent" disabled=true></input>
+										value=${MyResumeUser.workContent} id="save_job_cotent" disabled=true></input>
 								</div>
 							</div>
 

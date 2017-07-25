@@ -11,7 +11,12 @@
 		<result column="puname" property="puname" jdbcType="VARCHAR" />
 		<result column="sex" property="sex" jdbcType="VARCHAR" />
 		<result column="age" property="age" jdbcType="INTEGER" />
-		<result column="email" property="email" jdbcType="VARCHAR" />
+		<result column="sch_name" property="schName" jdbcType="VARCHAR" />
+		<result column="maj_name" property="majName" jdbcType="VARCHAR" />
+		<result column="edu" property="edu" jdbcType="VARCHAR" />
+		<result column="com_name" property="comName" jdbcType="VARCHAR" />
+		<result column="job_name" property="jobName" jdbcType="VARCHAR" />
+		<result column="work_content" property="workContent" jdbcType="VARCHAR" />
 
 	</resultMap>
 	<sql id="Base_Column_List">
@@ -105,7 +110,7 @@
 	<select id="selectByPname" resultMap="BaseResultMap"
 		parameterType="java.lang.String">
 		select
-		<include refid="Base_Column_List" />
+		*
 		from personal_user
 		where pname = #{pname}
 	</select>

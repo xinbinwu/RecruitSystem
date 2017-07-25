@@ -58,4 +58,16 @@ public class DeliverServiceImpl implements DeliverService {
 		return this.deliverMapper.delectByUserIDComName(id, com_name);
 	}
 
+	@Override
+	public Deliver selectByDoubleId(int pid, int jobId) {
+		// TODO Auto-generated method stub
+		return this.deliverMapper.selectByDoubleId(pid, jobId);
+	}
+
+	@Override
+	public List<Deliver> selectAllDeliverById(int id) {
+		// TODO Auto-generated method stub
+		return this.deliverMapper.selectAllDeliverById(id);
+	}
+
 }

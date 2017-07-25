@@ -19,5 +19,9 @@ public interface DeliverService {
 	int selectByJobIdUserID(int i, int k);
 
 	int delectByUserIDComName(int id, String com_name);
+	
+	Deliver selectByDoubleId(int pid, int jobId);
+	
+	List<Deliver> selectAllDeliverById(int id);
 
 }

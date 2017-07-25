@@ -1,11 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
-<%@page import="java.util.ArrayList"%>
-<%@page import="java.util.List"%>
-<%@page import="com.chinasofti.model.Personal_user"%>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 
@@ -24,6 +19,7 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/myjob.js"></script>
 <script src="js/doT.js"></script>
+<script src="js/jqueryajax.js"></script>
 <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
@@ -45,11 +41,10 @@
 		<div class="header">
 			<div class="top">
 				<div class="inner clearfix">
-					<div class="pull-left">
-						<span class="city-text" id="city" value="110000">[北京市]</span> <a
-							href="#" class="switch-btn" data-toggle="modal"
-							data-target="#CityModal">切换城市</a>
-					</div>
+					<!--<div class="pull-left">
+							<span class="city-text" id="city" value="310000">[上海市]</span>
+							<a href="#" class="switch-btn" data-toggle="modal" data-target="#CityModal">切换城市</a>
+						</div>-->
 
 					<c:choose>
 						<c:when test="${! empty user  }">
@@ -59,7 +54,7 @@
 								<ul class="user-menu">
 									<!-- 求职者个人导航 start -->
 									<li><a href="MyResume.action">我的简历</a></li>
-									<li><a href="deliverRecord.action">投递记录</a></li>
+									<li><a href="DeliveryRecord.jsp">投递记录</a></li>
 									<li><a href="JobCollection.jsp">收藏职位</a></li>
 									<li><a href="changepassword.jsp">修改密码</a></li>
 									<li><a href="logout.action">退出登录</a></li>
@@ -94,7 +89,7 @@
 								<input id="keyword" name="keyword" type="text" value=""
 									placeholder='' />
 							</div>
-							<input type="hidden" name="is_tech" value="0" />
+							<input type="hidden" name="is_tech" value="1" />
 							<button type="submit" class="btn search-box-btn">搜索</button>
 						</form>
 					</div>
@@ -117,81 +112,89 @@
 		</div>
 	</div>
 	<!-- 导航 end -->
-	<!-- 模态框（Modal） -->
-	<div class="modal fade" id="CityModal" tabindex="-1" role="dialog"
-		aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-hidden="true">&times;</button>
+
+	<div class="job-banner" id="option-keyword" default-value="职位 公司"
+		value="">
+		<div class="inner clearfix">
+			<div class="job-banner-info pull-left" style="width: 50%;">
+				<p class="title">${job_info.jobName}</p>
+				<p>
+					<span class="star">${job_info.jobSal}</span> <span>${job_info.jobYear}</span> <span>${job_info.jobEdu}</span>
+				</p>
+				<!--<p class="notes">2017-07-20 10:03:19 发布</p>-->
+			</div>
+			<a href="#"
+				class="job-banner-info pull-right clearfix" style="width: 49%;">
+				<!--<div class="job-banner-logo pull-right">
+						<img src="http://game.myjob.com/upload/1/0/100a82a23b9ec13f21387b7ba7c69ece.jpg" alt="">
+					</div>-->
+				<div class="pull-right" style="width: 70%;">
+					<p class="title">${job_info.company_info.comName}</p>
+					<p>
+						<span>${job_info.company_info.comField}</span>  <span>${job_info.company_info.comNum}</span>
+					</p>
+					<p class="notes">${job_info.company_info.comAdd}</p>
+				</div>
+			</a>
+		</div>
+	</div>
+	<!--  职位 -->
+	<div class="inner clearfix main-container" style="margin-left: 550px;">
+
+		<!-- 左侧内容 -->
+		<div class="content pull-left">
+			<h5 class="content-title">
+				<a href="#" class="content-tab current" data-id="job_detail">职位详情</a>
+				<!--<a href="#" class="content-tab" data-id="job_info">公司介绍</a>
+                    <a href="#" class="content-tab" data-id="job_list">公司所有技术职位</a>-->
+			</h5>
+
+			<!-- 职位详情 -->
+			<div class="content-tab-box detail-box" data-id="job_detail"
+				style="display: block;">
+				<div class="detail-list-box">
+					<h5>职位福利</h5>
+					<p>${job_info.jobWelfare}
+					</p>
+					<div class="detail-content clearfix"></div>
+				</div>
+				<div class="detail-list-box">
+					<h5>职位描述</h5>
+					<div class="detail-content">
+						<p>
+							${job_info.jobDescription}</p>
+						
+					</div>
+				</div>
+				<div class="detail-list-box">
+					<h5>公司地址</h5>
+					<div class="detail-content">${job_info.company_info.comAdd}</div>
+				</div>
+
+				
+
+			</div>
+			<!-- 职位详情 end -->
+
+			<!-- 公司介绍 -->
+			<div class="content-tab-box detail-box" data-id="job_info">
+				<div class="detail-list-box">
+					<h5>公司介绍</h5>
+					<div class="detail-content">
+						公司属于创业型企业，是集研发与服务为一体的科技型企业；公司前身成立于2013年，专注于家具类智能硬件产品的开发，为用户提供至高无上的服务；随着公司不断发展，新项目于2017年成立，已在紧锣密鼓开展进行；公司秉承诚信为本、致力科技改善生活；
+					</div>
 				</div>
 
 			</div>
+			<!-- 公司介绍 end -->
+
+			<!-- 公司其他职位 -->
+			<div class="content-tab-box job-list" data-id="job_list"></div>
+			<!--    公司其他职位 end -->
 		</div>
 	</div>
-	<!-- 模态框（Modal） end-->
-	<!--  职位 -->
-	<div class="inner clearfix main-container">
+	<!-- 左侧内容 end-->
 
-
-		<!-- 右侧内容 -->
-		<div class="content pull-right">
-			<!-- 职位列表 -->
-			<div class="job-content" id="option-keyword" default-value="职位 公司"
-				value="">
-				<h5 class="content-title">
-					<span>我的投递记录</span>
-				</h5>
-
-				<c:forEach var="job" items="${jobList}">
-
-					<div class="job-list">
-						<a href="job_detail_show.action?jobid=${job.jobId}" target="_blank" class="job-item">
-							<div class="job-item-t clearfix">
-								<div class="job-item-l pull-left">
-									<div class="job-name">${job.jobName}</div>
-									<div class="demand clearfix">
-										<span class="star">${job.jobSal}</span> <span>${job.jobYear}</span>
-										<span>${job.jobEdu}</span>
-									</div>
-								</div>
-								<div class="job-item-c pull-left">
-									<div class="com-name">${job.company_info.comName}</div>
-									<div class="demand clearfix">
-										<span>${job.company_info.comField}</span> <span>${job.company_info.comNum}</span>
-									</div>
-								</div>
-
-							</div>
-							<div class="job-item-b">
-								<span class="location pull-left">${job.company_info.comAdd}</span>
-							</div>
-
-						</a>
-					</div>
-
-				</c:forEach>
-
-			</div>
-		</div>
-		<!-- 右侧内容end-->
-	</div>
-	<!-- 职位 end -->
-
-	<!-- 底部 -->
-	<div class="siteFooter">
-		<div class="footerLink">
-			<a href="/index/about">关于我们</a> <em>|</em> <a href="/index/question">帮助中心</a>
-			<em>|</em> <a href="/index/contact">联系我们</a> <em>|</em> <a
-				href="/index/clause">免责条款</a>
-
-		</div>
-		<div class="footerLink">
-			灵思环宇科技（北京）有限公司&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ICP备案号：京ICP备16019277号
-			©2017 MYJOB.com ALL .Rights Reseved</div>
-	</div>
-	<!-- 底部 end -->
 </body>
 
 </html>

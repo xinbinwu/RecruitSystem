@@ -5,10 +5,49 @@ import org.springframework.stereotype.Component;
 @Component
 public class Deliver {
 	private int id;
-	private int userId;
+	private int pId;
 	private int jobId;
-	private int companyId;
-	private String companyName;
+	private int comId;
+
+	private Personal_user personal_user;
+	private Job_info job_info;
+	private Company_info company_info;
+
+	public Personal_user getPersonal_user() {
+		return personal_user;
+	}
+
+	public void setPersonal_user(Personal_user personal_user) {
+		this.personal_user = personal_user;
+	}
+
+	public Deliver(int id, int pId, int jobId, int comId, Personal_user personal_user, Job_info job_info,
+			Company_info company_info) {
+		super();
+		this.id = id;
+		this.pId = pId;
+		this.jobId = jobId;
+		this.comId = comId;
+		this.personal_user = personal_user;
+		this.job_info = job_info;
+		this.company_info = company_info;
+	}
+
+	public Job_info getJob_info() {
+		return job_info;
+	}
+
+	public void setJob_info(Job_info job_info) {
+		this.job_info = job_info;
+	}
+
+	public Company_info getCompany_info() {
+		return company_info;
+	}
+
+	public void setCompany_info(Company_info company_info) {
+		this.company_info = company_info;
+	}
 
 	public int getId() {
 		return id;
@@ -18,12 +57,12 @@ public class Deliver {
 		this.id = id;
 	}
 
-	public int getUserId() {
-		return userId;
+	public int getpId() {
+		return pId;
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setpId(int pId) {
+		this.pId = pId;
 	}
 
 	public int getJobId() {
@@ -34,83 +73,38 @@ public class Deliver {
 		this.jobId = jobId;
 	}
 
-	public int getCompanyId() {
-		return companyId;
+	public int getComId() {
+		return comId;
 	}
 
-	public void setCompanyId(int companyId) {
-		this.companyId = companyId;
-	}
-
-	public String getCompanyName() {
-		return companyName;
-	}
-
-	public void setCompanyName(String companyName) {
-		this.companyName = companyName;
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + companyId;
-		result = prime * result + ((companyName == null) ? 0 : companyName.hashCode());
-		result = prime * result + id;
-		result = prime * result + jobId;
-		result = prime * result + userId;
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Deliver other = (Deliver) obj;
-		if (companyId != other.companyId)
-			return false;
-		if (companyName == null) {
-			if (other.companyName != null)
-				return false;
-		} else if (!companyName.equals(other.companyName))
-			return false;
-		if (id != other.id)
-			return false;
-		if (jobId != other.jobId)
-			return false;
-		if (userId != other.userId)
-			return false;
-		return true;
+	public void setComId(int comId) {
+		this.comId = comId;
 	}
 
 	@Override
 	public String toString() {
-		return "Deliver [id=" + id + ", userId=" + userId + ", jobId=" + jobId + ", companyId=" + companyId
-				+ ", companyName=" + companyName + "]";
+		return "Deliver [id=" + id + ", pId=" + pId + ", jobId=" + jobId + ", comId=" + comId + ", personal_user="
+				+ personal_user + ", job_info=" + job_info + ", company_info=" + company_info + "]";
+	}
+
+	public Deliver(int id, int pId, int jobId, int comId) {
+		super();
+		this.id = id;
+		this.pId = pId;
+		this.jobId = jobId;
+		this.comId = comId;
 	}
 
 	public Deliver() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
-	public Deliver(int userId, int jobId, int companyId, String companyName) {
+	public Deliver(int pId, int jobId, int comId) {
 		super();
-		this.userId = userId;
+		this.pId = pId;
 		this.jobId = jobId;
-		this.companyId = companyId;
-		this.companyName = companyName;
-	}
-
-	public Deliver(int id, int userId, int jobId, int companyId, String companyName) {
-		super();
-		this.id = id;
-		this.userId = userId;
-		this.jobId = jobId;
-		this.companyId = companyId;
-		this.companyName = companyName;
+		this.comId = comId;
 	}
 
 }

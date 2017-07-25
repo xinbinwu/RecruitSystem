@@ -18,7 +18,7 @@ $("document").ready(function() {
 			},
 			// 请求成功后的回调函数。 data 为服务器返回的数据
 			success : function(res) {
-				
+
 			}
 		});
 		return false;
@@ -49,7 +49,6 @@ $("document").ready(function() {
 			},
 			// 请求成功后的回调函数。 data 为服务器返回的数据
 			success : function(res) {
-				
 
 			}
 		});
@@ -81,7 +80,6 @@ $("document").ready(function() {
 			// 请求成功后的回调函数。 data 为服务器返回的数据
 			success : function(res) {
 
-			
 			}
 		});
 		return false;
