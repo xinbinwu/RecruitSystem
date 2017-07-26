@@ -27,4 +27,10 @@ public class Job_Info_ServiceImpl implements Job_Info_Service {
 		return this.job_infoMapper.selectByJobId(id);
 	}
 
+	@Override
+	public List<Job_info> searchLikeName(String name) {
+		// TODO Auto-generated method stub
+		return this.job_infoMapper.searchLikeName(name);
+	}
+
 }

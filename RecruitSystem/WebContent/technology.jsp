@@ -88,7 +88,7 @@
 						</a>
 					</div>
 					<div class="nav-search-box clearfix">
-						<form method="get" action="/job/search">
+						<form method="get" action="jobSearchLikeName.action">
 							<div class="search-input">
 								<input id="keyword" name="keyword" type="text" value=""
 									placeholder='' />

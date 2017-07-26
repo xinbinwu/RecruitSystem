@@ -16,6 +16,7 @@
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/myjob.js"></script>
+<script src="js/registerjqueryajax.js"></script>
 <script>
 	var _hmt = _hmt || [];
 	(function() {
@@ -32,17 +33,18 @@
 		<!-- 注册 -->
 		<div class="sso-form sso-register" id="sso-register"
 			style="display: block;">
-			<font color="red">${RegisteredFailedmessage}</font>
+			<font color="red"></font>
 			<h3>注册 My Job</h3>
-			<div id="registerTip" class="tip-error"></div>
+			<div id="registerTip" class="tip-error">${RegisteredFailedmessage}</div>
+
 			<!-- tip-error没有提示显示为空，不需要隐藏 -->
 			<form style="width: 350px" action="register.action" method="post">
 				<div class="form-group">
 					<div class="form-group pst-relative drop-select-input-box">
 						<div class="input-box">
 							<i class="input-ico ico-phone"></i> <input name="registerPhone"
-								required="required" type="text" class="form-control"
-								placeholder="手机号">
+								id="registerPhone" required="required" type="text"
+								class="form-control" placeholder="手机号">
 						</div>
 
 					</div>
@@ -52,20 +54,21 @@
 					<div class="input-box">
 						<i class="input-ico ico-pwd"></i> <input name="registerPassword"
 							required="required" type="password" class="form-control"
-							placeholder="密码">
+							id="registerPassword" placeholder="密码">
 					</div>
 				</div>
 				<div class="form-group">
 					<div class="input-box">
 						<i class="input-ico ico-pwd"></i> <input name="registerRepassword"
 							required="required" type="password" class="form-control"
-							placeholder="确认密码">
+							id="registerRepassword" placeholder="确认密码">
 					</div>
-				</div >
-				<div style="margin-left:70px;margin-top:20px">
-				<input type="radio" name="type" value="个人" checked="checked" />个人用户注册&nbsp;&nbsp;&nbsp;
-				<input type="radio" name="type" value="企业" />企业用户注册 </div><input
-					class="btn sso-btn" type="submit" value="注册" />
+				</div>
+				<div style="margin-left: 70px; margin-top: 20px">
+					<input type="radio" name="type" value="个人" checked="checked" />个人用户注册&nbsp;&nbsp;&nbsp;
+					<input type="radio" name="type" value="企业" />企业用户注册
+				</div>
+				<input class="btn sso-btn" type="submit" value="注册" />
 			</form>
 			<div class="tip-text align-center">
 				<span> 已有账号?<a href="login.jsp" class="login-link">立即登录</a></span>

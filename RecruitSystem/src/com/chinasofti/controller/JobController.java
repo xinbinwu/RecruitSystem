@@ -153,7 +153,22 @@ public class JobController {
 		}
 
 	}
-	
-	
+
+	@RequestMapping("/jobSearchLikeName.action")
+	public ModelAndView jobSearchLikeName(HttpServletRequest request, HttpServletResponse response, Model model)
+			throws ServletException, IOException {
+		String name = request.getParameter("keyword");
+
+		System.out.println(name);
+		List<Job_info> searchLikeName = job_Info_Service.searchLikeName(name);
+		for (Job_info job_info : searchLikeName) {
+			System.out.println(job_info);
+		}
+		request.setAttribute("searchLikeName", searchLikeName);
+		mav.setViewName("technologyBySearch");
+
+		return mav;
+
+	}
 
 }

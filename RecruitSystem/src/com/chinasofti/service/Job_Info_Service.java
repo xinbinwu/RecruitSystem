@@ -10,7 +10,8 @@ import com.chinasofti.model.Job_info;
 public interface Job_Info_Service {
 
 	List<Job_info> selectAll();
-	
+
 	Job_info selectByJobId(int id);
 
+	List<Job_info> searchLikeName(String name);
 }

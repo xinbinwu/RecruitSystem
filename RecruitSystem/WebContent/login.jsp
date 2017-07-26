@@ -33,8 +33,10 @@
 		<!-- 登录 -->
 		<div class="sso-form sso-login" style="display: block;">
 			<h3 id="login_title">登录 My Job</h3>
-			<font color="red">${LoginFailedMessage}</font>
-			<div id="loginTip" class="tip-error"></div>
+
+			<div id="loginTip" class="tip-error">
+				${LoginFailedMessage}
+			</div>
 			<!-- tip-error没有提示显示为空，不需要隐藏 -->
 			<form style="width: 350px" action="login.action" method="post">
 				<div class="form-group pst-relative drop-select-input-box">
@@ -59,8 +61,8 @@
 						</label>
 					</div>
 					<br> <input type="radio" name="type" value="个人"
-						checked="checked" />个人用户登录&nbsp;&nbsp;&nbsp;<input type="radio" name="type"
-						value="企业" />企业用户登录
+						checked="checked" />个人用户登录&nbsp;&nbsp;&nbsp;<input type="radio"
+						name="type" value="企业" />企业用户登录
 
 
 				</div>
@@ -72,7 +74,7 @@
 			<div class="tip-text">
 				<span class="pull-left">没有账号?<a href="register.jsp"
 					class="register-link">立即注册</a></span> <span class="pull-right"><a
-					href="changepassword.jsp" class="forgotpwd-link">忘记密码</a></span>
+					href="changepassword.jsp" class="forgotpwd-link">修改密码</a></span>
 			</div>
 		</div>
 		<!-- 登录 end -->

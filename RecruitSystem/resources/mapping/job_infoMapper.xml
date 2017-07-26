@@ -213,5 +213,15 @@
 
 	</select>
 
+	<select id="searchLikeName" resultMap="Job_conn_Company"
+		parameterType="java.lang.String">
+		select e.*,f.* from
+		job_info
+		e,company_info f where
+		e.com_id=f.com_id and e.job_name like concat('%',#{name},'%') or
+		f.com_name like concat('%',#{name},'%')
+
+	</select>
+
 
 </mapper>

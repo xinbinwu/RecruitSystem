@@ -19,6 +19,7 @@
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/myjob.js"></script>
+
 <script src="js/doT.js"></script>
 <script src="js/jqueryajax.js"></script>
 <!--[if lt IE 9]>
@@ -37,6 +38,7 @@
 </head>
 
 <body>
+	<a name="top" id="top"></a>
 	<!-- 导航开始 -->
 	<div class="header-box">
 		<div class="header">
@@ -140,32 +142,35 @@ span.value-field {
 								disabled=true>
 							<div class="form-group">
 								<label for="name">姓名</label> <input type="text"
-									class="form-control value-field" placeholder="姓名" name="name" required="required"
-									disabled=true id="basic_name" value=${MyResumeUser.puname} > 
-									<span id="basic_namespan" style="display: none;color:red;">姓名不能为空！</span>
+									class="form-control value-field" placeholder="姓名" name="name"
+									required="required" disabled=true id="basic_name"
+									value="${MyResumeUser.puname}"> <span
+									id="basic_namespan" style="display: none; color: red;">姓名不能为空！</span>
 							</div>
 
 							<div class="form-group">
 								<label for="name">性别</label> <input type="text"
-									class="form-control value-field" placeholder="性别：男/女" required="required"
-									value=${MyResumeUser.sex} name="sex" id="basic_sex" disabled=true> <span id="sexspan" style="display: none;color:red;">性别输入格式有误，请输入：男/女！</span>
+									class="form-control value-field" placeholder="性别：男/女"
+									required="required" value="${MyResumeUser.sex}" name="sex"
+									id="basic_sex" disabled=true> <span id="sexspan"
+									style="display: none; color: red;">性别输入格式有误，请输入：男/女！</span>
 							</div>
 
 
 							<div class="form-group">
-								<label for="name">年龄</label> <input type="text" 
-									class="form-control value-field" placeholder="年龄" required="required"
-									id="basic_age" value=${MyResumeUser.age} disabled=true 
-									 ></input>
-									 <span id="agespan" style="display: none;color:red;">年龄输入格式有误，请重新输入！</span>
+								<label for="name">年龄</label> <input type="text"
+									class="form-control value-field" placeholder="年龄"
+									required="required" id="basic_age" value="${MyResumeUser.age}"
+									disabled=true></input> <span id="agespan"
+									style="display: none; color: red;">年龄输入格式有误，请重新输入！</span>
 							</div>
 
 							<div class="form-group">
 								<label for="email">邮箱</label> <input type="text"
-									class="form-control value-field" placeholder="邮箱" required="required"
-									value=${MyResumeUser.email} id="basic_email" disabled=true>
-									
-									<span id="emailspan" style="display: none;color:red;">邮箱输入格式有误，请重新输入！</span>
+									class="form-control value-field" placeholder="邮箱"
+									required="required" value="${MyResumeUser.email}"
+									id="basic_email" disabled=true> <span id="emailspan"
+									style="display: none; color: red;">邮箱输入格式有误，请重新输入！</span>
 							</div>
 
 							<div class="operation clearfix">
@@ -193,22 +198,25 @@ span.value-field {
 								name="id" value="0">
 							<div class="form-group">
 								<label>学校名称</label> <input type="text"
-									class="form-control value-field" placeholder="学校名称"  required="required"
-									value=${MyResumeUser.schName} id="save_sch_name" disabled=true> 
-									<span id="schNamespan" style="display: none;color:red;">学校名称不能为空！</span>
+									class="form-control value-field" placeholder="学校名称"
+									required="required" value="${MyResumeUser.schName}"
+									id="save_sch_name" disabled=true> <span
+									id="schNamespan" style="display: none; color: red;">学校名称不能为空！</span>
 							</div>
 							<div class="form-group">
 								<label>专业名称</label> <input type="text"
-									class="form-control value-field" placeholder="专业名称"  required="required"
-									value=${MyResumeUser.majName} id="save_maj_name" disabled=true>
-									<span id="majNamespan" style="display: none;color:red;">专业名称名称不能为空！</span>
+									class="form-control value-field" placeholder="专业名称"
+									required="required" value="${MyResumeUser.majName}"
+									id="save_maj_name" disabled=true> <span
+									id="majNamespan" style="display: none; color: red;">专业名称不能为空！</span>
 							</div>
 
 							<div class="form-group">
 								<label>学历名称</label> <input type="text"
-									class="form-control value-field" placeholder="专业名称:大专/本科/硕士/博士"  required="required"
-									value=${MyResumeUser.edu} id="save_edu_name" disabled=true>
-									<span id="eduspan" style="display: none;color:red;">学历名称不能为空！</span>
+									class="form-control value-field" placeholder="专业名称:大专/本科/硕士/博士"
+									required="required" value="${MyResumeUser.edu}"
+									id="save_edu_name" disabled=true> <span id="eduspan"
+									style="display: none; color: red;">学历名称不能为空！</span>
 							</div>
 
 
@@ -240,23 +248,26 @@ span.value-field {
 								name="id" value="0">
 							<div class="form-group">
 								<label>公司名称</label> <input type="text"
-									class="form-control value-field" placeholder="公司名称" required="required"
-									value=${MyResumeUser.workComName} id="save_com_name" disabled=true>
-									<span id="workComNamespan" style="display: none;color:red;">公司名称不能为空！</span>
+									class="form-control value-field" placeholder="公司名称"
+									required="required" value="${MyResumeUser.workComName}"
+									id="save_com_name" disabled=true> <span
+									id="workComNamespan" style="display: none; color: red;">公司名称不能为空！</span>
 							</div>
 							<div class="form-group">
 								<label>职位名称</label> <input type="text"
-									class="form-control value-field" placeholder="职位名称"  required="required"
-									value=${MyResumeUser.workJobName} id="save_job_name" disabled=true>
-									<span id="workJobNamespan" style="display: none;color:red;">职位名称不能为空！</span>
+									class="form-control value-field" placeholder="职位名称"
+									required="required" value="${MyResumeUser.workJobName}"
+									id="save_job_name" disabled=true> <span
+									id="workJobNamespan" style="display: none; color: red;">职位名称不能为空！</span>
 							</div>
 
 							<div class="form-group">
 								<label>工作内容</label>
 								<div>
-									<input class="form-control value-field" rows="4" name="content"  required="required"
-										value=${MyResumeUser.workContent} id="save_job_cotent" disabled=true></input>
-										<span id="workContentspan" style="display: none;color:red;">工作内容不能为空！</span>
+									<input class="form-control value-field" rows="4" name="content"
+										required="required" value="${MyResumeUser.workContent}"
+										id="save_job_cotent" disabled=true placeholder="工作内容"></input>
+									<span id="workContentspan" style="display: none; color: red;">工作内容不能为空！</span>
 								</div>
 							</div>
 
@@ -268,8 +279,11 @@ span.value-field {
 
 
 							</div>
+
 						</form>
 					</div>
+
+
 					<div class="info-view">
 						<ul>
 						</ul>
@@ -277,7 +291,19 @@ span.value-field {
 				</div>
 
 				</form>
+				<div>
+					<a href="#top" target="_self" id="backtotop"
+						style="position: fixed; right: 20px; bottom: 500px;"
+						class="btn cancel _j_cancel _j_cancel_basic">返回顶部</a> <a
+						href="#buttom" target="_self" id="backtotop"
+						style="position: fixed; right: 20px; bottom: 450px;"
+						class="btn cancel _j_cancel _j_cancel_basic">返回底部</a>
+				</div>
+
 			</div>
+
+
+
 
 			<div class="info-view">
 				<ul>
@@ -290,6 +316,7 @@ span.value-field {
 
 	</div>
 </html>
+
 <!-- 模态框（提示） start-->
 <div class="modal fade" id="tip-info-modal" style="z-index: 1250;"
 	tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
@@ -307,4 +334,6 @@ span.value-field {
 		</div>
 	</div>
 </div>
+
+<a name="buttom" id="buttom"></a>
 <!-- 模态框（提示） end-->

@@ -140,32 +140,31 @@
 			<div class="job-content" id="option-keyword" default-value="职位 公司"
 				value="">
 				<h5 class="content-title">
-					<span>我的投递记录</span>
+					<span>职位</span>
 				</h5>
 
-				<c:forEach var="deliver" items="${selectAllDeliverById}">
+				<c:forEach var="job" items="${searchLikeName}">
 
 					<div class="job-list">
-						<a href="job_detail_show.action?jobid=${deliver.job_info.jobId}"
-							target="_blank" class="job-item">
+						<a href="job_detail.action?jobid=${job.jobId}" target="_blank" class="job-item">
 							<div class="job-item-t clearfix">
 								<div class="job-item-l pull-left">
-									<div class="job-name">${deliver.job_info.jobName}</div>
+									<div class="job-name">${job.jobName}</div>
 									<div class="demand clearfix">
-										<span class="star">${job.jobSal}</span> <span>${deliver.job_info.jobYear}</span>
-										<span>${deliver.job_info.jobEdu}</span>
+										<span class="star">${job.jobSal}</span> <span>${job.jobYear}</span>
+										<span>${job.jobEdu}</span>
 									</div>
 								</div>
 								<div class="job-item-c pull-left">
-									<div class="com-name">${deliver.company_info.comName}</div>
+									<div class="com-name">${job.company_info.comName}</div>
 									<div class="demand clearfix">
-										<span>${deliver.company_info.comField}</span> <span>${deliver.company_info.comNum}</span>
+										<span>${job.company_info.comField}</span> <span>${job.company_info.comNum}</span>
 									</div>
 								</div>
 
 							</div>
 							<div class="job-item-b">
-								<span class="location pull-left">${deliver.company_info.comAdd}</span>
+								<span class="location pull-left">${job.company_info.comAdd}</span>
 							</div>
 
 						</a>

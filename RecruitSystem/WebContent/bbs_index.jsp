@@ -83,7 +83,7 @@
 						</a>
 					</div>
 					<div class="nav-search-box clearfix">
-						<form method="get" action="/post/search">
+						<form method="get" action="jobSearchLikeName.action">
 							<div class="search-input">
 								<input id="keyword" autocomplete="off" name="keyword"
 									type="text" value="" placeholder='' /> <input name="type"

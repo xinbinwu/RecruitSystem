@@ -52,9 +52,9 @@ $("document").ready(function() {
 			},
 			// 请求成功后的回调函数。 data 为服务器返回的数据
 			success : function(res) {
-					$("#save_sch_name").prop("disabled", true);
-					$("#save_maj_name").prop("disabled", true);
-					$("#save_edu_name").prop("disabled", true);
+				$("#save_sch_name").prop("disabled", true);
+				$("#save_maj_name").prop("disabled", true);
+				$("#save_edu_name").prop("disabled", true);
 			}
 		});
 		return false;
@@ -84,9 +84,9 @@ $("document").ready(function() {
 			},
 			// 请求成功后的回调函数。 data 为服务器返回的数据
 			success : function(res) {
-					$("#save_com_name").prop("disabled", true);
-					$("#save_job_name").prop("disabled", true);
-					$("#save_job_cotent").prop("disabled", true);
+				$("#save_com_name").prop("disabled", true);
+				$("#save_job_name").prop("disabled", true);
+				$("#save_job_cotent").prop("disabled", true);
 			}
 		});
 		return false;
