@@ -14,8 +14,8 @@
 		<result column="sch_name" property="schName" jdbcType="VARCHAR" />
 		<result column="maj_name" property="majName" jdbcType="VARCHAR" />
 		<result column="edu" property="edu" jdbcType="VARCHAR" />
-		<result column="com_name" property="comName" jdbcType="VARCHAR" />
-		<result column="job_name" property="jobName" jdbcType="VARCHAR" />
+		<result column="work_com_name" property="workComName" jdbcType="VARCHAR" />
+		<result column="work_job_name" property="workJobName" jdbcType="VARCHAR" />
 		<result column="work_content" property="workContent" jdbcType="VARCHAR" />
 
 	</resultMap>
@@ -150,7 +150,7 @@
 			11:12:09 CST 2017. -->
 		update personal_user
 		set
-		com_name=#{0},job_name=#{1},work_content=#{2}
+		work_com_name=#{0},work_job_name=#{1},work_content=#{2}
 		where
 		pname
 		=

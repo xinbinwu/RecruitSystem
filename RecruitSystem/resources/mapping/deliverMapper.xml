@@ -29,8 +29,10 @@
 			<result column="sch_name" property="schName" jdbcType="VARCHAR" />
 			<result column="maj_name" property="majName" jdbcType="VARCHAR" />
 			<result column="edu" property="edu" jdbcType="VARCHAR" />
-			<result column="com_name" property="comName" jdbcType="VARCHAR" />
-			<result column="job_name" property="jobName" jdbcType="VARCHAR" />
+			<result column="work_com_name" property="workComName"
+				jdbcType="VARCHAR" />
+			<result column="work_job_name" property="workJobName"
+				jdbcType="VARCHAR" />
 			<result column="work_content" property="workContent" jdbcType="VARCHAR" />
 		</collection>
 		<collection property="job_info" column="job_id"
@@ -73,13 +75,16 @@
 		job_id=#{1}
 	</select>
 
-	<select id="selectAllDeliverById" resultMap="DeliverResultMap">
+	<select id="selectAllDeliverById" resultMap="DeliverResultMap"
+		parameterType="java.lang.Integer">
 		select
-		a.pid,a.*,b.*,c.*
-		from delivery_record a,personal_user b,job_info
+		a.pid,a.*,b.*,c.*,d.*
+		from delivery_record
+		a,personal_user b,job_info
 		c,company_info d where
-		a.pid=#{pid} and a.job_id=c.job_id and
-		a.com_id=d.com_id
+		a.pid=#{pid} and
+		a.job_id=c.job_id and
+		a.com_id=d.com_id and c.com_id=d.com_id
 
 	</select>
 </mapper>

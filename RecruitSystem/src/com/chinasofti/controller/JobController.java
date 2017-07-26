@@ -67,6 +67,7 @@ public class JobController {
 		String jobId = request.getParameter("jobid");
 
 		System.out.println(jobId);
+		userSession = (Personal_user) request.getSession().getAttribute("user");
 
 		job_info = job_Info_Service.selectByJobId(Integer.parseInt(jobId));
 
@@ -90,7 +91,7 @@ public class JobController {
 		System.out.println(job_info);
 
 		request.setAttribute("job_info", job_info);
-		mav.setViewName("jobDetail");
+		mav.setViewName("jobDetailShow");
 
 		return mav;
 
@@ -103,40 +104,56 @@ public class JobController {
 		Integer comId = Integer.parseInt(request.getParameter("comId"));
 
 		userSession = (Personal_user) request.getSession().getAttribute("user");
-		String pname = userSession.getPname();
-		System.out.println("userSession:" + pname);
-		Personal_user userSelectByName = service.selectByPname(pname);
-		Integer pId = userSelectByName.getPid();
+		if (userSession != null) {
+			String pname = userSession.getPname();
 
-		System.out.println(jobId + "  " + comId + "  " + pId);
-		deliver.setpId(pId);
-		deliver.setJobId(jobId);
-		deliver.setComId(comId);
-		if (deliverService.selectByDoubleId(pId, jobId) != null) {
-			request.setAttribute("message", "不可重复投递");
-			request.getRequestDispatcher("job_detail.action").forward(request, response);
+			System.out.println("userSession:" + pname);
+			Personal_user userSelectByName = service.selectByPname(pname);
+			Integer pId = userSelectByName.getPid();
+
+			System.out.println(jobId + "  " + comId + "  " + pId);
+			deliver.setpId(pId);
+			deliver.setJobId(jobId);
+			deliver.setComId(comId);
+			if (deliverService.selectByDoubleId(pId, jobId) != null) {
+				request.setAttribute("message", "不可重复投递");
+				request.getRequestDispatcher("job_detail.action").forward(request, response);
+			} else {
+				deliverService.insertInfo(deliver);
+				request.setAttribute("message", "投递成功");
+				request.getRequestDispatcher("job_detail.action").forward(request, response);
+			}
 		} else {
-			deliverService.insertInfo(deliver);
-			request.setAttribute("message", "投递成功");
-			request.getRequestDispatcher("job_detail.action").forward(request, response);
+			response.sendRedirect("login.jsp");
 		}
 
 	}
 
 	@RequestMapping("/deliverRecord.action")
-	public void JobDeliverRecord(HttpServletRequest request, HttpServletResponse response, Model model)
+	public ModelAndView JobDeliverRecord(HttpServletRequest request, HttpServletResponse response, Model model)
 			throws ServletException, IOException {
 
 		userSession = (Personal_user) request.getSession().getAttribute("user");
-		String pname = userSession.getPname();
-		System.out.println("userSession:" + pname);
-		Personal_user userSelectByName = service.selectByPname(pname);
-		Integer pId = userSelectByName.getPid();
-		List<Deliver> selectAllDeliver = deliverService.selectAllDeliverById(pId);
-		for (Deliver deliver : selectAllDeliver) {
-			System.out.println(deliver);
+		if (userSession != null) {
+			String pname = userSession.getPname();
+			System.out.println("userSession:" + pname);
+			Personal_user userSelectByName = service.selectByPname(pname);
+			Integer pId = userSelectByName.getPid();
+			List<Deliver> selectAllDeliverById = deliverService.selectAllDeliverById(pId);
+			for (Deliver deliver : selectAllDeliverById) {
+				System.out.println(deliver);
+			}
+			request.setAttribute("selectAllDeliverById", selectAllDeliverById);
+			mav.setViewName("DeliveryRecord");
+
+			return mav;
+		} else {
+			mav.setViewName("login");
+			return mav;
 		}
 
 	}
+	
+	
 
 }

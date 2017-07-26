@@ -53,9 +53,8 @@
 								<span class="user-name"> ${user.pname}</span>
 								<ul class="user-menu">
 									<!-- 求职者个人导航 start -->
-									<li><a href="MyResume.jsp">我的简历</a></li>
-									<li><a href="DeliveryRecord.jsp">投递记录</a></li>
-									<li><a href="JobCollection.jsp">收藏职位</a></li>
+									<li><a href="MyResume.action">我的简历</a></li>
+									<li><a href="deliverRecord.action">投递记录</a></li>
 									<li><a href="changepassword.jsp">修改密码</a></li>
 									<li><a href="logout.action">退出登录</a></li>
 									<!-- 求职者个人导航 end -->
@@ -100,8 +99,8 @@
 				<div class="inner">
 					<ul class="clearfix">
 						<!-- 求职者菜单 start -->
-						<li><a class="current" href="index.jsp">首页</a></li>
-						<li><a href="technology.jsp">职位</a></li>
+						<li><a href="index.jsp">首页</a></li>
+						<li><a href="job.action">职位</a></li>
 						<li><a href="bbs_index.jsp">技术牛社区</a></li>
 						<li><a href="home_office.jsp">技术宅</a></li>
 						<!-- 求职者菜单 end -->

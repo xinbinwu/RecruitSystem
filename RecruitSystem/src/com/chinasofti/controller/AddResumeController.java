@@ -34,11 +34,16 @@ public class AddResumeController {
 	@RequestMapping("/MyResume.action")
 	public String MyResume(HttpServletRequest request, HttpServletResponse response, Model model) {
 		userSession = (Personal_user) request.getSession().getAttribute("user");
-		String pname = userSession.getPname();
-		MyResumeUser = service.selectByPname(pname);
-		System.out.println(MyResumeUser);
-		model.addAttribute("MyResumeUser", MyResumeUser);
-		return "MyResume";
+
+		if (userSession != null) {
+			String pname = userSession.getPname();
+			MyResumeUser = service.selectByPname(pname);
+			System.out.println(MyResumeUser);
+			model.addAttribute("MyResumeUser", MyResumeUser);
+			return "MyResume";
+		} else {
+			return "login";
+		}
 
 	}
 
@@ -58,6 +63,7 @@ public class AddResumeController {
 
 		userSession = (Personal_user) request.getSession().getAttribute("user");
 		String pname = userSession.getPname();
+
 		System.out.println("userSession:" + pname);
 		Personal_user userSelectByName = service.selectByPname(pname);
 		System.out.println(userSelectByName);

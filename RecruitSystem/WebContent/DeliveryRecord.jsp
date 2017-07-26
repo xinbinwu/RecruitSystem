@@ -60,7 +60,6 @@
 									<!-- 求职者个人导航 start -->
 									<li><a href="MyResume.action">我的简历</a></li>
 									<li><a href="deliverRecord.action">投递记录</a></li>
-									<li><a href="JobCollection.jsp">收藏职位</a></li>
 									<li><a href="changepassword.jsp">修改密码</a></li>
 									<li><a href="logout.action">退出登录</a></li>
 									<!-- 求职者个人导航 end -->
@@ -144,28 +143,29 @@
 					<span>我的投递记录</span>
 				</h5>
 
-				<c:forEach var="job" items="${jobList}">
+				<c:forEach var="deliver" items="${selectAllDeliverById}">
 
 					<div class="job-list">
-						<a href="job_detail_show.action?jobid=${job.jobId}" target="_blank" class="job-item">
+						<a href="job_detail_show.action?jobid=${deliver.job_info.jobId}"
+							target="_blank" class="job-item">
 							<div class="job-item-t clearfix">
 								<div class="job-item-l pull-left">
-									<div class="job-name">${job.jobName}</div>
+									<div class="job-name">${deliver.job_info.jobName}</div>
 									<div class="demand clearfix">
-										<span class="star">${job.jobSal}</span> <span>${job.jobYear}</span>
-										<span>${job.jobEdu}</span>
+										<span class="star">${job.jobSal}</span> <span>${deliver.job_info.jobYear}</span>
+										<span>${deliver.job_info.jobEdu}</span>
 									</div>
 								</div>
 								<div class="job-item-c pull-left">
-									<div class="com-name">${job.company_info.comName}</div>
+									<div class="com-name">${deliver.company_info.comName}</div>
 									<div class="demand clearfix">
-										<span>${job.company_info.comField}</span> <span>${job.company_info.comNum}</span>
+										<span>${deliver.company_info.comField}</span> <span>${deliver.company_info.comNum}</span>
 									</div>
 								</div>
 
 							</div>
 							<div class="job-item-b">
-								<span class="location pull-left">${job.company_info.comAdd}</span>
+								<span class="location pull-left">${deliver.company_info.comAdd}</span>
 							</div>
 
 						</a>
