@@ -156,4 +156,9 @@
 		=
 		#{3}
 	</update>
+	<update id="alterPUserPassword" parameterType="com.chinasofti.model.Personal_user">
+		update personal_user
+		set ppwd = #{ppwd} where pname = #{pname}
+	</update>
+
 </mapper>

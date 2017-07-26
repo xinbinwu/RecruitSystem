@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 
@@ -29,6 +30,26 @@
 </head>
 
 <body class="page-sso">
+	<div class="header-box">
+		<div class="header">
+			
+
+
+			<div class="nav-tab">
+				<div class="inner" style="width:700px">
+					<ul class="clearfix">
+						<!-- 求职者菜单 start -->
+						<li><a href="index.jsp">首页</a></li>
+						<li><a href="job.action">职位</a></li>
+						<li><a href="bbs_index.jsp">技术牛社区</a></li>
+						<li><a href="home_office.jsp">技术宅</a></li>
+						<!-- 求职者菜单 end -->
+					</ul>
+				</div>
+			</div>
+
+		</div>
+	</div>
 	<div class="sso-box">
 		<!-- 注册 -->
 		<div class="sso-form sso-register" id="sso-register"

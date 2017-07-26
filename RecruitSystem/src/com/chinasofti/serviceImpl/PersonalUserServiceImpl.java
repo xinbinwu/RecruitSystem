@@ -15,6 +15,9 @@ public class PersonalUserServiceImpl implements PersonalUserService {
 	private Personal_userMapper personal_userMapper;
 	@Resource
 	private Personal_user personal_user;
+	
+	@Resource
+	private Personal_user newpuser;
 
 	public Personal_user getPersonal_user() {
 		return personal_user;
@@ -106,4 +109,18 @@ public class PersonalUserServiceImpl implements PersonalUserService {
 		return this.personal_userMapper.updateWorkSelective(comName, jobName, workContent, pname);
 	}
 
+	@Override
+	public boolean checkPassword(String pusername, String ppwd, String oldppwd) {
+		personal_user = personal_userMapper.selectByPname(pusername);
+		System.out.println(personal_user);
+		System.out.println(pusername + " " + ppwd + " " + oldppwd);
+		if (personal_user != null && personal_user.getPpwd().equals(oldppwd)) {
+			newpuser.setPname(pusername);
+			newpuser.setPpwd(ppwd);
+			personal_userMapper.alterPUserPassword(newpuser);
+			System.out.println("checkPassword");
+			return true;
+		}
+		return false;
+	}
 }

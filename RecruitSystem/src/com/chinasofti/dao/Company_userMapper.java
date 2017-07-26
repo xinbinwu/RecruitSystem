@@ -56,4 +56,8 @@ public interface Company_userMapper {
 	int updateByPrimaryKey(Company_user record);
 
 	Company_user selectByPname(String pname);
+	
+	int alterCUserPassword(Company_user newcuser);
+
+	String selectcomidByCuserId(int cuserId);
 }

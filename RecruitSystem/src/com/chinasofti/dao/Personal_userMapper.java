@@ -75,4 +75,6 @@ public interface Personal_userMapper {
 	int updateEduSelective(String schName, String majName, String edu, String pname);
 	
 	int updateWorkSelective(String comName, String jobName, String workContent, String pname);
+	
+	int alterPUserPassword(Personal_user user);
 }

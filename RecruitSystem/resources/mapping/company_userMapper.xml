@@ -116,4 +116,12 @@
 		from company_user
 		where cname = #{cname}
 	</select>
+	<update id="alterCUserPassword" parameterType="com.chinasofti.model.Company_user">
+		update
+		company_user
+		set cpwd =#{cpwd} where cname = #{cname}
+	</update>
+	<select id="selectcomidByCuserId" parameterType="java.lang.Integer"
+		resultType="java.lang.Integer"> select com_id from company_user where cuser_id =
+		#{cuserId,jdbcType=INTEGER}</select>
 </mapper>

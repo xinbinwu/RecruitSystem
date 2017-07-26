@@ -29,14 +29,32 @@
 </head>
 
 <body class="page-sso">
+	<div class="header-box">
+		<div class="header">
+			
+
+
+			<div class="nav-tab">
+				<div class="inner" style="width:700px">
+					<ul class="clearfix">
+						<!-- 求职者菜单 start -->
+						<li><a href="index.jsp">首页</a></li>
+						<li><a href="job.action">职位</a></li>
+						<li><a href="bbs_index.jsp">技术牛社区</a></li>
+						<li><a href="home_office.jsp">技术宅</a></li>
+						<!-- 求职者菜单 end -->
+					</ul>
+				</div>
+			</div>
+
+		</div>
+	</div>
 	<div class="sso-box">
 		<!-- 登录 -->
 		<div class="sso-form sso-login" style="display: block;">
 			<h3 id="login_title">登录 My Job</h3>
 
-			<div id="loginTip" class="tip-error">
-				${LoginFailedMessage}
-			</div>
+			<div id="loginTip" class="tip-error">${LoginFailedMessage}</div>
 			<!-- tip-error没有提示显示为空，不需要隐藏 -->
 			<form style="width: 350px" action="login.action" method="post">
 				<div class="form-group pst-relative drop-select-input-box">
