@@ -128,11 +128,11 @@
 						<img src="http://game.myjob.com/upload/1/0/100a82a23b9ec13f21387b7ba7c69ece.jpg" alt="">
 					</div>-->
 				<div class="pull-right" style="width: 70%;">
-					<p class="title">${job_info.company_info.comName}</p>
+					<p class="title">${job_info.company_user.comName}</p>
 					<p>
-						<span>${job_info.company_info.comField}</span>  <span>${job_info.company_info.comNum}</span>
+						<span>${job_info.company_user.comField}</span>  <span>${job_info.company_user.comNum}</span>
 					</p>
-					<p class="notes">${job_info.company_info.comAdd}</p>
+					<p class="notes">${job_info.company_user.comAdd}</p>
 				</div>
 			</a>
 		</div>
@@ -167,7 +167,7 @@
 				</div>
 				<div class="detail-list-box">
 					<h5>公司地址</h5>
-					<div class="detail-content">${job_info.company_info.comAdd}</div>
+					<div class="detail-content">${job_info.company_user.comAdd}</div>
 				</div>
 
 				

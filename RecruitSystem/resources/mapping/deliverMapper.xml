@@ -8,7 +8,7 @@
 		<id column="id" property="id" jdbcType="INTEGER" />
 		<result column="pid" property="pId" jdbcType="INTEGER" />
 		<result column="job_id" property="jobId" jdbcType="INTEGER" />
-		<result column="com_id" property="comId" jdbcType="INTEGER" />
+		<result column="cuser_id" property="cuserId" jdbcType="INTEGER" />
 
 	</resultMap>
 
@@ -17,7 +17,7 @@
 		<id column="id" property="id" jdbcType="INTEGER" />
 		<result column="pid" property="pId" jdbcType="INTEGER" />
 		<result column="job_id" property="jobId" jdbcType="INTEGER" />
-		<result column="com_id" property="comId" jdbcType="INTEGER" />
+		<result column="cuser_id" property="cuserId" jdbcType="INTEGER" />
 		<collection property="personal_user" column="pid"
 			ofType="com.chinasofti.model.Personal_user">
 			<id column="pid" property="pid" jdbcType="INTEGER" />
@@ -46,12 +46,12 @@
 			<result column="job_welfare" property="jobWelfare" jdbcType="VARCHAR" />
 			<result column="job_description" property="jobDescription"
 				jdbcType="VARCHAR" />
-			<result column="com_id" property="comId" jdbcType="INTEGER" />
+			<result column="cuser_id" property="cuserId" jdbcType="INTEGER" />
 		</collection>
 
-		<collection property="company_info" column="com_id"
-			ofType="com.chinasofti.model.Company_info">
-			<id column="com_id" property="comId" jdbcType="INTEGER" />
+		<collection property="company_user" column="cuser_id"
+			ofType="com.chinasofti.model.Company_user">
+			<id column="cuser_id" property="cuserId" jdbcType="INTEGER" />
 			<result column="com_name" property="comName" jdbcType="VARCHAR" />
 			<result column="com_field" property="comField" jdbcType="VARCHAR" />
 			<result column="com_num" property="comNum" jdbcType="INTEGER" />
@@ -65,7 +65,7 @@
 
 	<insert id="insertInfo" parameterType="com.chinasofti.model.Deliver">
 		insert into
-		delivery_record(pid,job_id,com_id) values(#{pId},#{jobId},#{comId})
+		delivery_record(pid,job_id,cuser_id) values(#{pId},#{jobId},#{cuserId})
 	</insert>
 
 	<select id="selectByDoubleId" resultMap="BaseResultMap"
@@ -81,10 +81,10 @@
 		a.pid,a.*,b.*,c.*,d.*
 		from delivery_record
 		a,personal_user b,job_info
-		c,company_info d where
+		c,company_user d where
 		a.pid=#{pid} and
 		a.job_id=c.job_id and
-		a.com_id=d.com_id and c.com_id=d.com_id
+		a.cuser_id=d.cuser_id 
 
 	</select>
 </mapper>

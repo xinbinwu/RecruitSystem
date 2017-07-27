@@ -157,15 +157,15 @@
 									</div>
 								</div>
 								<div class="job-item-c pull-left">
-									<div class="com-name">${deliver.company_info.comName}</div>
+									<div class="com-name">${deliver.company_user.comName}</div>
 									<div class="demand clearfix">
-										<span>${deliver.company_info.comField}</span> <span>${deliver.company_info.comNum}</span>
+										<span>${deliver.company_user.comField}</span> <span>${deliver.company_user.comNum}</span>
 									</div>
 								</div>
 
 							</div>
 							<div class="job-item-b">
-								<span class="location pull-left">${deliver.company_info.comAdd}</span>
+								<span class="location pull-left">${deliver.company_user.comAdd}</span>
 							</div>
 
 						</a>

@@ -128,11 +128,11 @@
 						<img src="http://game.myjob.com/upload/1/0/100a82a23b9ec13f21387b7ba7c69ece.jpg" alt="">
 					</div>-->
 				<div class="pull-right" style="width: 70%;">
-					<p class="title">${job_info.company_info.comName}</p>
+					<p class="title">${job_info.company_user.comName}</p>
 					<p>
-						<span>${job_info.company_info.comField}</span>  <span>${job_info.company_info.comNum}</span>
+						<span>${job_info.company_user.comField}</span>  <span>${job_info.company_user.comNum}</span>
 					</p>
-					<p class="notes">${job_info.company_info.comAdd}</p>
+					<p class="notes">${job_info.company_user.comAdd}</p>
 				</div>
 			</a>
 		</div>
@@ -167,11 +167,11 @@
 				</div>
 				<div class="detail-list-box">
 					<h5>公司地址</h5>
-					<div class="detail-content">${job_info.company_info.comAdd}</div>
+					<div class="detail-content">${job_info.company_user.comAdd}</div>
 				</div>
 
 				<div class="btn-box clearfix">
-					<button class="btn " id="deliverBtn" onclick="location.href='deliver.action?jobid=${job_info.jobId}&comId=${job_info.company_info.comId}'">申请职位</button><font color="red">${message}</font>
+					<button class="btn " id="deliverBtn" onclick="location.href='deliver.action?jobid=${job_info.jobId}&cuserId=${job_info.company_user.cuserId}'">申请职位</button><font color="red">${message}</font>
 					<!-- 已申请添加enabled类 -->
 					<!--<button class="btn " id="favoriteBtn" favorite-type="0" value="30681">收藏职位</button>-->
 					<!-- 已收藏添加enabled类 -->

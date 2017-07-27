@@ -156,15 +156,15 @@
 									</div>
 								</div>
 								<div class="job-item-c pull-left">
-									<div class="com-name">${job.company_info.comName}</div>
+									<div class="com-name">${job.company_user.comName}</div>
 									<div class="demand clearfix">
-										<span>${job.company_info.comField}</span> <span>${job.company_info.comNum}</span>
+										<span>${job.company_user.comField}</span> <span>${job.company_user.comNum}</span>
 									</div>
 								</div>
 
 							</div>
 							<div class="job-item-b">
-								<span class="location pull-left">${job.company_info.comAdd}</span>
+								<span class="location pull-left">${job.company_user.comAdd}</span>
 							</div>
 
 						</a>

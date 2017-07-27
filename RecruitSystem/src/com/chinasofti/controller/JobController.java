@@ -57,6 +57,8 @@ public class JobController {
 
 		request.setAttribute("jobList", jobList);
 		mav.setViewName("technology");
+		int size = jobList.size() / 5;
+		System.out.println(size);
 
 		return mav;
 
@@ -101,7 +103,7 @@ public class JobController {
 	public void JobDeliver(HttpServletRequest request, HttpServletResponse response, Model model)
 			throws ServletException, IOException {
 		Integer jobId = Integer.parseInt(request.getParameter("jobid"));
-		Integer comId = Integer.parseInt(request.getParameter("comId"));
+		Integer cuserId = Integer.parseInt(request.getParameter("cuserId"));
 
 		userSession = (Personal_user) request.getSession().getAttribute("user");
 		if (userSession != null) {
@@ -111,10 +113,10 @@ public class JobController {
 			Personal_user userSelectByName = service.selectByPname(pname);
 			Integer pId = userSelectByName.getPid();
 
-			System.out.println(jobId + "  " + comId + "  " + pId);
+			System.out.println(jobId + "  " + cuserId + "  " + pId);
 			deliver.setpId(pId);
 			deliver.setJobId(jobId);
-			deliver.setComId(comId);
+			deliver.setCuserId(cuserId);
 			if (deliverService.selectByDoubleId(pId, jobId) != null) {
 				request.setAttribute("message", "不可重复投递");
 				request.getRequestDispatcher("job_detail.action").forward(request, response);

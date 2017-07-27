@@ -136,6 +136,69 @@
 
 		<!-- 右侧内容 -->
 		<div class="content pull-right">
+			<!-- 筛选 -->
+			<div class="filter-box" id="option-keyword" default-value="职位 公司"
+				value="c">
+				
+				<dl class="clearfix">
+					<dt>薪资范围：</dt>
+					<dd>
+						<a
+							href="/job/search?keyword=c&is_tech=0&district_t=&salary_t=0&exp_t=0&scale_t=0"
+							class="current"> 不限</a> <a
+							href="/job/search?keyword=c&is_tech=0&district_t=&salary_t=1&exp_t=0&scale_t=0">3k以下</a>
+						<a
+							href="/job/search?keyword=c&is_tech=0&district_t=&salary_t=2&exp_t=0&scale_t=0">3k-5k</a>
+						<a
+							href="/job/search?keyword=c&is_tech=0&district_t=&salary_t=3&exp_t=0&scale_t=0">5k-10k</a>
+						<a
+							href="/job/search?keyword=c&is_tech=0&district_t=&salary_t=4&exp_t=0&scale_t=0">10k-20k</a>
+						<a
+							href="/job/search?keyword=c&is_tech=0&district_t=&salary_t=5&exp_t=0&scale_t=0">20k-50k</a>
+						<a
+							href="/job/search?keyword=c&is_tech=0&district_t=&salary_t=6&exp_t=0&scale_t=0">50k以上</a>
+					</dd>
+				</dl>
+				<dl class="clearfix">
+					<dt>工作经验：</dt>
+					<dd>
+						<a
+							href="/job/search?keyword=c&is_tech=0&district_t=&salary_t=0&exp_t=0&scale_t=0"
+							class="current"> 不限</a> <a
+							href="/job/search?keyword=c&is_tech=0&district_t=&salary_t=0&exp_t=1&scale_t=0">应届生</a>
+						<a
+							href="/job/search?keyword=c&is_tech=0&district_t=&salary_t=0&exp_t=2&scale_t=0">1年以内</a>
+						<a
+							href="/job/search?keyword=c&is_tech=0&district_t=&salary_t=0&exp_t=3&scale_t=0">1-3年</a>
+						<a
+							href="/job/search?keyword=c&is_tech=0&district_t=&salary_t=0&exp_t=4&scale_t=0">3-5年</a>
+						<a
+							href="/job/search?keyword=c&is_tech=0&district_t=&salary_t=0&exp_t=5&scale_t=0">5-10年</a>
+						<a
+							href="/job/search?keyword=c&is_tech=0&district_t=&salary_t=0&exp_t=6&scale_t=0">10年以上</a>
+					</dd>
+				</dl>
+				<dl class="clearfix">
+					<dt>公司规模：</dt>
+					<dd>
+						<a
+							href="/job/search?keyword=c&is_tech=0&district_t=&salary_t=0&exp_t=0&scale_t=0"
+							class="current"> 不限</a> <a
+							href="/job/search?keyword=c&is_tech=0&district_t=&salary_t=0&exp_t=0&scale_t=1">0-19人</a>
+						<a
+							href="/job/search?keyword=c&is_tech=0&district_t=&salary_t=0&exp_t=0&scale_t=2">20-99人</a>
+						<a
+							href="/job/search?keyword=c&is_tech=0&district_t=&salary_t=0&exp_t=0&scale_t=3">100-499人</a>
+						<a
+							href="/job/search?keyword=c&is_tech=0&district_t=&salary_t=0&exp_t=0&scale_t=4">500-999人</a>
+						<a
+							href="/job/search?keyword=c&is_tech=0&district_t=&salary_t=0&exp_t=0&scale_t=5">1000-9999人</a>
+						<a
+							href="/job/search?keyword=c&is_tech=0&district_t=&salary_t=0&exp_t=0&scale_t=6">10000人以上</a>
+					</dd>
+				</dl>
+			</div>
+
 			<!-- 职位列表 -->
 			<div class="job-content" id="option-keyword" default-value="职位 公司"
 				value="">
@@ -146,7 +209,8 @@
 				<c:forEach var="job" items="${jobList}">
 
 					<div class="job-list">
-						<a href="job_detail.action?jobid=${job.jobId}" target="_blank" class="job-item">
+						<a href="job_detail.action?jobid=${job.jobId}" target="_blank"
+							class="job-item">
 							<div class="job-item-t clearfix">
 								<div class="job-item-l pull-left">
 									<div class="job-name">${job.jobName}</div>
@@ -156,15 +220,15 @@
 									</div>
 								</div>
 								<div class="job-item-c pull-left">
-									<div class="com-name">${job.company_info.comName}</div>
+									<div class="com-name">${job.company_user.comName}</div>
 									<div class="demand clearfix">
-										<span>${job.company_info.comField}</span> <span>${job.company_info.comNum}</span>
+										<span>${job.company_user.comField}</span> <span>${job.company_user.comNum}</span>
 									</div>
 								</div>
 
 							</div>
 							<div class="job-item-b">
-								<span class="location pull-left">${job.company_info.comAdd}</span>
+								<span class="location pull-left">${job.company_user.comAdd}</span>
 							</div>
 
 						</a>
@@ -177,6 +241,25 @@
 		<!-- 右侧内容end-->
 	</div>
 	<!-- 职位 end -->
+
+	<!--  分页 -->
+	<div class="pagination-box">
+		<ul class="pagination">
+			<li><a
+				href="/job/search?is_tech=0&keyword=c&salary_t=0&exp_t=0&scale_t=0&start=40">上一页</a></li>
+			<li><a
+				href="/job/search?is_tech=0&keyword=c&salary_t=0&exp_t=0&scale_t=0&start=10">2</a></li>
+			<li><a
+				href="/job/search?is_tech=0&keyword=c&salary_t=0&exp_t=0&scale_t=0&start=20">3</a></li>
+			<li><a
+				href="/job/search?is_tech=0&keyword=c&salary_t=0&exp_t=0&scale_t=0&start=30">4</a></li>
+			<li><a
+				href="/job/search?is_tech=0&keyword=c&salary_t=0&exp_t=0&scale_t=0&start=40">5</a></li>
+			<li class="active"><a href="javascript:void(0);">6</a></li>
+			<li class="disabled"><a href="javascript:void(0);">下一页</a></li>
+		</ul>
+	</div>
+
 
 	<!-- 底部 -->
 	<div class="siteFooter">
