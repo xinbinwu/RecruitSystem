@@ -14,4 +14,6 @@ public interface Job_Info_Service {
 	Job_info selectByJobId(int id);
 
 	List<Job_info> searchLikeName(String name);
+	
+	int insert(Job_info job_info);
 }

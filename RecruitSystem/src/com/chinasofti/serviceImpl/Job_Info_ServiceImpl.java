@@ -32,5 +32,12 @@ public class Job_Info_ServiceImpl implements Job_Info_Service {
 		// TODO Auto-generated method stub
 		return this.job_infoMapper.searchLikeName(name);
 	}
+	
+	@Override
+	public int insert(Job_info job_info) {
+		// TODO Auto-generated method stub
+		return this.job_infoMapper.insert(job_info);
+	}
+
 
 }
