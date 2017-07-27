@@ -40,7 +40,7 @@ public class AddJobController {
 		Integer cuserid = (Integer) session.getAttribute("cuserId");
 		int jobId = Integer.parseInt(request.getParameter("id"));
 		String jobName = request.getParameter("name");
-		double jobSal = Double.parseDouble(request.getParameter("jobSal"));
+		String jobSal = request.getParameter("jobSal");
 		String jobYear = request.getParameter("jobYear");
 		String jobEdu = request.getParameter("jobEdu");
 		int comId = Integer.parseInt(cservice.selectcomidByCuserId(cuserid));

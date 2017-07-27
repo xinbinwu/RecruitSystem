@@ -87,12 +87,21 @@
 
 				</div>
 			</div>
-
 			<div class="nav-tab">
-				<div class="inner" align="center">
-					<span class="clearfix" id="editResume">编辑简历</span>
+				<div class="inner" style="width: 680px">
+					<ul class="clearfix">
+						<!-- 求职者菜单 start -->
+						<li><a href="index.jsp">首页</a></li>
+						<li><a href="job.action">职位</a></li>
+						<li><a href="bbs_index.jsp">技术牛社区</a></li>
+						<li><a href="home_office.jsp">技术宅</a></li>
+						<!-- 求职者菜单 end -->
+					</ul>
 				</div>
 			</div>
+
+
+
 
 		</div>
 	</div>
@@ -128,11 +137,55 @@ span.value-field {
 				<div class="head-img-box">
 					<div class="head-img">
 						<img src="http://game.myjob.com/static/img/avatar/f-1.png">
-						<a href="#" class="head-img-btn _j_upload_img"
-							style="display: none;">点击更换头像</a>
+						<a class="head-img-btn _j_upload_img" onclick="uploadImage();">点击更换头像</a>
+
 					</div>
-					<!--<a href="#" class="pull-right s-btn basic-btn _j_edit _j_edit_basic" data-dest="basic-info-text">编辑</a>-->
+					<input type="file" onchange="selectImage(this);" /> <br /> <input
+						type="button" onclick="uploadImage();" value="提交" />
+
 				</div>
+
+				<script>
+					var image = '';
+					function selectImage(file) {
+						if (!file.files || !file.files[0]) {
+							return;
+						}
+						var reader = new FileReader();
+						reader.onload = function(evt) {
+							document.getElementById('image').src = evt.target.result;
+							image = evt.target.result;
+						}
+						reader.readAsDataURL(file.files[0]);
+					}
+					function uploadImage() {
+						image = JSON.stringify(image)
+						$.ajax({
+							type : 'POST',
+							url : '/blog/test',
+
+							data : {
+								base64 : image
+							},
+							async : false,
+							dataType : 'json',
+							success : function(data) {
+								alert(data.success)
+								if (data.success) {
+									alert('上传成功');
+
+								} else {
+									alert('上传失败');
+								}
+							},
+							error : function(err) {
+								alert('网络故障');
+							}
+
+						});
+					}
+				</script>
+
 
 				<!-- 基本信息 -->
 				<div class="info-content" id="basic-info-text">

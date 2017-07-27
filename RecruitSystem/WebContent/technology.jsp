@@ -40,6 +40,8 @@
 </head>
 
 <body>
+
+	<a name="top" id="top"></a>
 	<!-- 导航开始 -->
 	<div class="header-box">
 		<div class="header">
@@ -139,7 +141,7 @@
 			<!-- 筛选 -->
 			<div class="filter-box" id="option-keyword" default-value="职位 公司"
 				value="c">
-				
+
 				<dl class="clearfix">
 					<dt>薪资范围：</dt>
 					<dd>
@@ -243,23 +245,53 @@
 	<!-- 职位 end -->
 
 	<!--  分页 -->
+	<div class="" align="center">
+
+		<a>共 ${page.totalPageCount}页</a> <a>当前第 ${page.pageNow} 页</a>
+
+	</div>
 	<div class="pagination-box">
 		<ul class="pagination">
-			<li><a
-				href="/job/search?is_tech=0&keyword=c&salary_t=0&exp_t=0&scale_t=0&start=40">上一页</a></li>
-			<li><a
-				href="/job/search?is_tech=0&keyword=c&salary_t=0&exp_t=0&scale_t=0&start=10">2</a></li>
-			<li><a
-				href="/job/search?is_tech=0&keyword=c&salary_t=0&exp_t=0&scale_t=0&start=20">3</a></li>
-			<li><a
-				href="/job/search?is_tech=0&keyword=c&salary_t=0&exp_t=0&scale_t=0&start=30">4</a></li>
-			<li><a
-				href="/job/search?is_tech=0&keyword=c&salary_t=0&exp_t=0&scale_t=0&start=40">5</a></li>
-			<li class="active"><a href="javascript:void(0);">6</a></li>
-			<li class="disabled"><a href="javascript:void(0);">下一页</a></li>
+
+			<li><a href="job.action?pageNow=1">首页</a></li>
+			<c:choose>
+				<c:when test="${page.pageNow - 1 > 0}">
+					<li><a href="job.action?pageNow=${page.pageNow - 1}">上一页</a></li>
+				</c:when>
+				<c:when test="${page.pageNow - 1 <= 0}">
+					<li><a href="job.action?pageNow=1">上一页</a></li>
+				</c:when>
+			</c:choose>
+			<c:choose>
+				<c:when test="${page.totalPageCount==0}">
+					<li><a href="job.action?pageNow=${page.pageNow}">下一页</a></li>
+				</c:when>
+				<c:when test="${page.pageNow + 1 < page.totalPageCount}">
+					<li><a href="job.action?pageNow=${page.pageNow + 1}">下一页</a></li>
+				</c:when>
+				<c:when test="${page.pageNow + 1 >= page.totalPageCount}">
+					<li><a href="job.action?pageNow=${page.totalPageCount}">下一页</a></li>
+				</c:when>
+			</c:choose>
+			<c:choose>
+				<c:when test="${page.totalPageCount==0}">
+					<li><a href="job.action?pageNow=${page.pageNow}">尾页</a></li>
+				</c:when>
+				<c:otherwise>
+					<li><a href="job.action?pageNow=${page.totalPageCount}">尾页</a></li>
+				</c:otherwise>
+			</c:choose>
+
 		</ul>
 	</div>
-
+	<div>
+		<a href="#top" target="_self" id="backtotop"
+			style="position: fixed; right: 20px; bottom: 500px;"
+			class="btn cancel _j_cancel _j_cancel_basic">返回顶部</a> <a
+			href="#buttom" target="_self" id="backtotop"
+			style="position: fixed; right: 20px; bottom: 450px;"
+			class="btn cancel _j_cancel _j_cancel_basic">返回底部</a>
+	</div>
 
 	<!-- 底部 -->
 	<div class="siteFooter">
@@ -294,4 +326,5 @@
 		</div>
 	</div>
 </div>
+<a name="buttom" id="buttom"></a>
 <!-- 模态框（提示） end-->

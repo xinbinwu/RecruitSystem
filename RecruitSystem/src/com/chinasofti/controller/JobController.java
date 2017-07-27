@@ -20,6 +20,7 @@ import com.chinasofti.model.Personal_user;
 import com.chinasofti.service.DeliverService;
 import com.chinasofti.service.Job_Info_Service;
 import com.chinasofti.service.PersonalUserService;
+import com.chinasofti.util.Page;
 
 @Controller
 public class JobController {
@@ -45,21 +46,34 @@ public class JobController {
 	private Deliver deliver;
 	@Resource
 	private DeliverService deliverService;
+	@Resource
+	private Page page;
+	@Resource
+	private List<Job_info> selectAllPage = null;
+	@Resource
+	private List<Job_info> jobList;
 
 	@RequestMapping("/job.action")
 	public ModelAndView MyResume(HttpServletRequest request, HttpServletResponse response, Model model) {
+		String pageNow = request.getParameter("pageNow");
 
-		List<Job_info> jobList = job_Info_Service.selectAll();
+		int size = job_Info_Service.selectAllCount();
 
-		for (Job_info job_info : jobList) {
-			System.out.println(job_info);
-		}
-
-		request.setAttribute("jobList", jobList);
-		mav.setViewName("technology");
-		int size = jobList.size() / 5;
 		System.out.println(size);
 
+		if (pageNow != null) {
+			page.setTotalCount(size);
+			page.setPageNow(Integer.parseInt(pageNow));
+			selectAllPage = this.job_Info_Service.selectAllPage(page.getStartPos(), page.getPageSize());
+		} else {
+			page.setTotalCount(size);
+			page.setPageNow(1);
+			selectAllPage = this.job_Info_Service.selectAllPage(page.getStartPos(), page.getPageSize());
+		}
+		jobList = this.job_Info_Service.selectAllPage(page.getStartPos(), page.getPageSize());
+		model.addAttribute("jobList", jobList);
+		model.addAttribute("page", page);
+		mav.setViewName("technology");
 		return mav;
 
 	}

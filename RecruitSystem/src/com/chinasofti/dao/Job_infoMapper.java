@@ -62,4 +62,8 @@ public interface Job_infoMapper {
 	Job_info selectByJobId(int id);
 
 	List<Job_info> searchLikeName(String name);
+	
+	List<Job_info> selectAllPage(Integer startPos,Integer pageSize);
+	
+	int selectAllCount();
 }

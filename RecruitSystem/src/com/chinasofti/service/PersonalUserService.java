@@ -30,5 +30,7 @@ public interface PersonalUserService {
 	int updateWorkSelective(String comName, String jobName, String workContent, String pname);
 
 	boolean checkPassword(String pusername, String ppwd, String oldppwd);
+	
+
 
 }

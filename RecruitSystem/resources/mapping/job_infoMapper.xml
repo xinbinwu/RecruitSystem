@@ -7,7 +7,7 @@
 			11:12:09 CST 2017. -->
 		<id column="job_id" property="jobId" jdbcType="INTEGER" />
 		<result column="job_name" property="jobName" jdbcType="VARCHAR" />
-		<result column="job_sal" property="jobSal" jdbcType="DOUBLE" />
+		<result column="job_sal" property="jobSal" jdbcType="VARCHAR" />
 		<result column="job_year" property="jobYear" jdbcType="VARCHAR" />
 		<result column="job_edu" property="jobEdu" jdbcType="VARCHAR" />
 		<result column="job_date" property="jobDate" jdbcType="DATE" />
@@ -23,7 +23,7 @@
 			11:12:09 CST 2017. -->
 		<id column="job_id" property="jobId" jdbcType="INTEGER" />
 		<result column="job_name" property="jobName" jdbcType="VARCHAR" />
-		<result column="job_sal" property="jobSal" jdbcType="DOUBLE" />
+		<result column="job_sal" property="jobSal" jdbcType="VARCHAR" />
 		<result column="job_year" property="jobYear" jdbcType="VARCHAR" />
 		<result column="job_edu" property="jobEdu" jdbcType="VARCHAR" />
 		<result column="job_date" property="jobDate" jdbcType="DATE" />
@@ -78,7 +78,7 @@
 		)
 		values
 		(#{jobId,jdbcType=INTEGER}, #{jobName,jdbcType=VARCHAR},
-		#{jobSal,jdbcType=DOUBLE},
+		#{jobSal,jdbcType=VARCHAR},
 		#{jobYear,jdbcType=VARCHAR},
 		#{jobEdu,jdbcType=VARCHAR}, #{jobDate,jdbcType=DATE},
 		#{jobWelfare,jdbcType=VARCHAR}, #{jobDescription,jdbcType=VARCHAR},
@@ -127,7 +127,7 @@
 				#{jobName,jdbcType=VARCHAR},
 			</if>
 			<if test="jobSal != null">
-				#{jobSal,jdbcType=DOUBLE},
+				#{jobSal,jdbcType=VARCHAR},
 			</if>
 			<if test="jobYear != null">
 				#{jobYear,jdbcType=VARCHAR},
@@ -159,7 +159,7 @@
 				job_name = #{jobName,jdbcType=VARCHAR},
 			</if>
 			<if test="jobSal != null">
-				job_sal = #{jobSal,jdbcType=DOUBLE},
+				job_sal = #{jobSal,jdbcType=VARCHAR},
 			</if>
 			<if test="jobYear != null">
 				job_year = #{jobYear,jdbcType=VARCHAR},
@@ -189,7 +189,7 @@
 		update job_info
 		set job_name = #{jobName,jdbcType=VARCHAR},
 		job_sal =
-		#{jobSal,jdbcType=DOUBLE},
+		#{jobSal,jdbcType=VARCHAR},
 		job_year = #{jobYear,jdbcType=VARCHAR},
 		job_edu = #{jobEdu,jdbcType=VARCHAR},
 		job_date =
@@ -200,11 +200,32 @@
 		#{comId,jdbcType=INTEGER}
 		where job_id = #{jobId,jdbcType=INTEGER}
 	</update>
+
 	<select id="selectAll" resultMap="Job_conn_Company">
 		select e.*,f.* from job_info
 		e,company_user f where e.cuser_id=f.cuser_id
+	</select>
+
+	<!-- 分页SQL语句 -->
+	<select id="selectAllCount" resultType="java.lang.Integer">
+		select count(*) from
+		job_info
+		e,company_user f where
+		e.cuser_id=f.cuser_id
+
 
 	</select>
+	<select id="selectAllPage" resultMap="Job_conn_Company"
+		parameterType="java.lang.Integer">
+		select e.*,f.* from
+		job_info
+		e,company_user f where
+		e.cuser_id=f.cuser_id limit
+		#{0},#{1}
+	</select>
+
+
+
 
 	<select id="selectByJobId" resultMap="Job_conn_Company">
 		select e.*,f.* from
