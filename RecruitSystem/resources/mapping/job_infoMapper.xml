@@ -247,21 +247,12 @@
 		e,company_user f where e.cuser_id=f.cuser_id and
 		e.cuser_id=#{cuserId,jdbcType=INTEGER}
 	</select>
-	<update id="updateByJobid" > update job_info set <set>
-			<if test="jobName != null">
-				job_name = #{jobName,jdbcType=VARCHAR},
-			</if>
-			<if test="jobSal != null">
-				job_sal = #{jobSal,jdbcType=VARCHAR},
-			</if>
-			<if test="jobYear != null">
-				job_year = #{jobYear,jdbcType=VARCHAR},
-			</if>
-			<if test="jobEdu != null">
-				job_edu = #{jobEdu,jdbcType=VARCHAR},
-			</if>
-			</set>
-			where job_id = #{jobId,jdbcType=INTEGER}
-			</update>
+	<update id="updateByJobid" parameterType="com.chinasofti.model.Job_info" > update job_info set 
+				job_name = #{jobName,jdbcType=VARCHAR},			
+				job_sal = #{jobSal,jdbcType=VARCHAR},			
+				job_year = #{jobYear,jdbcType=VARCHAR},			
+				job_edu = #{jobEdu,jdbcType=VARCHAR},			
+	where job_id = #{jobId,jdbcType=INTEGER}
+	</update>
 
 </mapper>

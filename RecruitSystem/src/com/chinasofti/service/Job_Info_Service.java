@@ -26,6 +26,6 @@ public interface Job_Info_Service {
 
 	List<Job_info> selectByCuserId(int cuserid);
 
-	int updateByJobid(Job_info newjob);
+	int updateByPrimaryKey(Job_info newjob);
 	
 }

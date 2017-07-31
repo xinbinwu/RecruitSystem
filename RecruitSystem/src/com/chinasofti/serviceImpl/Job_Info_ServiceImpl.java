@@ -61,9 +61,9 @@ public class Job_Info_ServiceImpl implements Job_Info_Service {
 	}
 
 	@Override
-	public int updateByJobid(Job_info newjob) {
+	public int updateByPrimaryKey(Job_info newjob) {
 		// TODO Auto-generated method stub
-		return job_infoMapper.updateByJobid(newjob);
+		return job_infoMapper.updateByPrimaryKey(newjob);
 	}
 
 }

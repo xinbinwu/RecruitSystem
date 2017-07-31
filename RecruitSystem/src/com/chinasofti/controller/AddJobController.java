@@ -90,7 +90,7 @@ public class AddJobController {
 			mav.setViewName("jobmanage");
 		} else {
 			mav.addObject("message", "还没有招聘信息");
-			mav.setViewName("addjob");
+			mav.setViewName("releasejob");
 		}
 		return mav;
 		
@@ -104,6 +104,9 @@ public class AddJobController {
 	}
 	@RequestMapping("/showalterpage.action")
 	public ModelAndView showAlterPage(HttpServletRequest request, HttpServletResponse response, Model model){
+		int jobid= Integer.parseInt(request.getParameter("jobid").trim());
+		System.out.println(jobid);
+		mav.addObject("jobid",jobid);
 		mav.setViewName("alterjob");
 		return mav;
 	}
@@ -112,32 +115,35 @@ public class AddJobController {
 	public ModelAndView changeJob(HttpServletRequest request, HttpServletResponse response, Model model){
 		HttpSession session = request.getSession();
 		cuser= (Company_user) session.getAttribute("cuser");
-		int jobid= Integer.parseInt((String) request.getAttribute("jobid"));
+		int cuserid= cuser.getCuserId();
+		System.out.println(cuser);
+		int jobid= Integer.parseInt(request.getParameter("jobid").trim());
 		String jobName = request.getParameter("name");
 		String jobSal = request.getParameter("jobSal");
 		String jobYear = request.getParameter("jobYear");
 		String jobEdu = request.getParameter("jobEdu");
-		job_info.setJobId(jobid);
-		job_info.setJobEdu(jobEdu);
-		job_info.setJobName(jobName);
-		job_info.setJobSal(jobSal);
-		job_info.setJobYear(jobYear);
-		job_infoService.updateByJobid(newjob);
+		newjob.setJobId(jobid);
+		newjob.setJobEdu(jobEdu);
+		newjob.setJobName(jobName);
+		newjob.setJobSal(jobSal);
+		newjob.setJobYear(jobYear);
+		newjob.setCuserId(cuserid);
+		System.out.println(newjob);
+		List<Job_info> list;
+		
+		if(job_infoService.updateByPrimaryKey(newjob)!=0){
+			list=job_infoService.selectByCuserId(cuserid);
+			mav.addObject("list", list);
+			mav.setViewName("jobmanage");
+		}else {
+			mav.setViewName("alterjob");
+		}
 		return mav;
 		
 	}
 	
-	@RequestMapping("/manageDeliver.action")
-	public ModelAndView showJobPage(HttpServletRequest request, HttpServletResponse response, Model model){
-		
-		mav.setViewName("releasejob");
-		return mav;
-	}
-	
+
 	public ModelAndView showDelivery(HttpServletRequest request, HttpServletResponse response, Model model){
-		
-		
 		return mav;
-		
 	}
 }

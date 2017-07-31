@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
@@ -85,6 +86,7 @@
 							protected=1> <input type="hidden" class="value-field"
 							name="id" value="0">
 						<!--<h3 class="class_head" style="margin-left: 150px;"><span>添加公司信息</span></h3>-->
+						<div  style="display:none;"  > <input type="text" name="jobid" value="${jobid}"></div>
 						<div class="form-group">
 							<label>职位名称</label> <input type="text"
 								class="form-control value-field" placeholder="职位名称" name="name">
