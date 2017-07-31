@@ -46,9 +46,7 @@
 			<div class="top">
 				<div class="inner clearfix">
 					<div class="pull-left">
-						<span class="city-text" id="city" value="110000">[北京市]</span> <a
-							href="#" class="switch-btn" data-toggle="modal"
-							data-target="#CityModal">切换城市</a>
+						
 					</div>
 
 					<c:choose>

@@ -94,7 +94,26 @@
 				<th>联系方式</th>
 				<th>管理</th>
 			</tr>
+			<c:forEach var="deliver" items="${list}">
+				<tr style="font-size: 15px;"
+					onmouseover="this.style.backgroundColor='#ffff66';"
+					onmouseout="this.style.backgroundColor='#d4e3e5';">
 
+					<td>${deliver.company_user.comName}</td>
+					<td>${deliver.jobName}</td>
+					<td>${deliver.jobSal}</td>
+					<td>${deliver.jobYear}</td>
+					<td>${deliver.jobEdu}</td>
+
+					<td>
+						<button style="margin: 0; font-size: 16px;" type="button"
+							class="btn btn-default btn-xs" id="deliverselectbtn"
+							onclick="location.href='showalterpage.action?jobid=${deliver.jobId}'">
+							<span></span> 修改
+						</button>
+					</td>
+				</tr>
+			 </c:forEach>
 			<tr onmouseover="this.style.backgroundColor='#ffff66';"
 				onmouseout="this.style.backgroundColor='#d4e3e5';">
 

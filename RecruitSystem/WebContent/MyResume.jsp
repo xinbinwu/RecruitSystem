@@ -135,17 +135,7 @@ span.value-field {
 		<div class="content pull-left">
 			<div id="basic-info">
 				<div class="head-img-box">
-					<div class="head-img">
-						<img src="http://game.myjob.com/static/img/avatar/f-1.png">
-						<a class="head-img-btn _j_upload_img"">点击更换头像</a>
-
-					</div>
-					<form action="simpleFileupload.action" method="post"
-						enctype="multipart/form-data">
-						最简单的文件上传：<input type="file" name="fileupload" /> 描述：<input
-							type="text" name="desc" /> <input type="submit" value="submit" />
-					</form>
-
+					
 				</div>
 
 				<script>
