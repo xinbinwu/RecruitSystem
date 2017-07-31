@@ -3,6 +3,7 @@ package com.chinasofti.controller;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -28,35 +29,115 @@ public class AddJobController {
 	@Resource
 	private Job_info job_info;
 	@Resource
+	private Job_info newjob;
+	@Resource
 	private Company_user cuser;
 
 	@Resource
 	private ModelAndView mav;
 
-	@RequestMapping("addjob.action")
+	@RequestMapping("/addjob.action")
 	public ModelAndView addJob(HttpServletRequest request, HttpServletResponse response, Model model)
 			throws ParseException {
 		HttpSession session = request.getSession();
-		Integer cuserid = (Integer) session.getAttribute("cuserId");
+		// cuser= (Company_user) request.getAttribute("cuser");
+		cuser = (Company_user) session.getAttribute("cuser");
+		System.out.println(cuser);
+		int cuserid= cuser.getCuserId();
+		//int cuserid = 2;
+		List<Job_info> list;
 		int jobId = Integer.parseInt(request.getParameter("id"));
 		String jobName = request.getParameter("name");
 		String jobSal = request.getParameter("jobSal");
 		String jobYear = request.getParameter("jobYear");
 		String jobEdu = request.getParameter("jobEdu");
-		int comId = Integer.parseInt(cservice.selectcomidByCuserId(cuserid));
 		job_info.setJobId(jobId);
-		job_info.setCuserId(comId);
 		job_info.setJobEdu(jobEdu);
 		job_info.setJobName(jobName);
 		job_info.setJobSal(jobSal);
 		job_info.setJobYear(jobYear);
-		if (job_infoService.insert(job_info) != 0) {
-			System.out.println(job_info);
-			mav.addObject("message", "发布新职位成功");
+		job_info.setCuserId(cuserid);
+
+		if (cuser != null) {
+			if (job_infoService.insert(job_info) != 0) {
+				System.out.println(job_info);
+				list = job_infoService.selectByCuserId(cuserid);
+				mav.addObject("list", list);
+				mav.setViewName("jobmanage");
+				return mav;
+
+			} else {
+				mav.addObject("message", "发布新职位失败");
+				mav.setViewName("addjob");
+				return mav;
+			}
 		} else {
-			mav.addObject("message", "发布新职位失败");
+			mav.setViewName("login");
+			return mav;
+		}
+
+	}
+	
+	@RequestMapping("/manageDeliver.action")
+	public ModelAndView showJobmanage(HttpServletRequest request, HttpServletResponse response, Model model){
+		HttpSession session = request.getSession();
+		cuser = (Company_user) session.getAttribute("cuser");
+		int cuserid= cuser.getCuserId();
+		List<Job_info> list;
+		list=job_infoService.selectByCuserId(cuserid);
+		if (!list.isEmpty()) {
+			mav.addObject("list", list);
+			mav.setViewName("jobmanage");
+		} else {
+			mav.addObject("message", "还没有招聘信息");
+			mav.setViewName("addjob");
 		}
 		return mav;
-
+		
+	}
+	
+	@RequestMapping("/showjobaddpage.action")
+	public ModelAndView showJobAddPage(HttpServletRequest request, HttpServletResponse response, Model model){
+		
+		mav.setViewName("releasejob");
+		return mav;
+	}
+	@RequestMapping("/showalterpage.action")
+	public ModelAndView showAlterPage(HttpServletRequest request, HttpServletResponse response, Model model){
+		mav.setViewName("alterjob");
+		return mav;
+	}
+	
+	@RequestMapping("/alterjob.action")
+	public ModelAndView changeJob(HttpServletRequest request, HttpServletResponse response, Model model){
+		HttpSession session = request.getSession();
+		cuser= (Company_user) session.getAttribute("cuser");
+		int jobid= Integer.parseInt((String) request.getAttribute("jobid"));
+		String jobName = request.getParameter("name");
+		String jobSal = request.getParameter("jobSal");
+		String jobYear = request.getParameter("jobYear");
+		String jobEdu = request.getParameter("jobEdu");
+		job_info.setJobId(jobid);
+		job_info.setJobEdu(jobEdu);
+		job_info.setJobName(jobName);
+		job_info.setJobSal(jobSal);
+		job_info.setJobYear(jobYear);
+		job_infoService.updateByJobid(newjob);
+		return mav;
+		
+	}
+	
+	@RequestMapping("/manageDeliver.action")
+	public ModelAndView showJobPage(HttpServletRequest request, HttpServletResponse response, Model model){
+		
+		mav.setViewName("releasejob");
+		return mav;
+	}
+	
+	public ModelAndView showDelivery(HttpServletRequest request, HttpServletResponse response, Model model){
+		
+		
+		return mav;
+		
 	}
 }

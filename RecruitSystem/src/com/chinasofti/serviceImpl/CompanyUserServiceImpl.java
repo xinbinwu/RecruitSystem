@@ -67,4 +67,22 @@ public class CompanyUserServiceImpl implements CompanyUserService {
 		return this.company_userMapper.selectcomidByCuserId(cuserId);
 	}
 
+	@Override
+	public int insert(Company_user cuser) {
+		// TODO Auto-generated method stub
+		return this.company_userMapper.insert(cuser);
+	}
+
+	@Override
+	public Company_user selectByCuserid(Integer cuserid) {
+		// TODO Auto-generated method stub
+		return this.company_userMapper.selectByCuserid(cuserid);
+	}
+
+	@Override
+	public String selectcomnamebycname(String cname) {
+		// TODO Auto-generated method stub
+		return this.company_userMapper.selectcomnamebycname(cname);
+	}
+
 }

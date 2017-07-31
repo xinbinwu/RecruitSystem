@@ -27,5 +27,5 @@ public interface DeliverMapper {
 	
 	List<Deliver> selectAllDeliverById(int id);
 	
-
+	List<Deliver> selectAllDeliverByCuserId(int id);
 }

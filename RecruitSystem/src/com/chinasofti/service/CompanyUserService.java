@@ -15,4 +15,9 @@ public interface CompanyUserService {
 
 	boolean checkPassword(String cusername, String cpwd, String oldcpwd);
 
+	int insert(Company_user cuser);
+
+	Company_user selectByCuserid(Integer cuserid);
+	
+	String selectcomnamebycname(String cname);
 }

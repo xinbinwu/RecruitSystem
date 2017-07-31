@@ -59,8 +59,12 @@ public class LoginController {
 				
 				HttpSession session = request.getSession();
 				session.setAttribute("cuser", cuser);
+				if (cuser.getComName()!=null) {
+					mav.setViewName("cominfo");
+				} else {
+					mav.setViewName("addcominfo");
+				}
 				
-				mav.setViewName("index");
 				return mav;
 			} else {
 				mav.setViewName("login");

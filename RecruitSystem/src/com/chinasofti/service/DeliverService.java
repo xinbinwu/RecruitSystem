@@ -24,4 +24,5 @@ public interface DeliverService {
 	
 	List<Deliver> selectAllDeliverById(int id);
 
+	List<Deliver> selectAllDeliverByCuserId(int id);
 }

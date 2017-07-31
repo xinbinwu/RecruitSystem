@@ -54,4 +54,16 @@ public class Job_Info_ServiceImpl implements Job_Info_Service {
 		return job_infoMapper.selectAllCount();
 	}
 
+	@Override
+	public List<Job_info> selectByCuserId(int cuserid) {
+		// TODO Auto-generated method stub
+		return job_infoMapper.selectByCuserId(cuserid);
+	}
+
+	@Override
+	public int updateByJobid(Job_info newjob) {
+		// TODO Auto-generated method stub
+		return job_infoMapper.updateByJobid(newjob);
+	}
+
 }

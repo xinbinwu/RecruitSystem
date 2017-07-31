@@ -60,4 +60,8 @@ public interface Company_userMapper {
 	int alterCUserPassword(Company_user newcuser);
 
 	String selectcomidByCuserId(int cuserId);
+
+	Company_user selectByCuserid(Integer cuserid);
+
+	String selectcomnamebycname(String cname);
 }

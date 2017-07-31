@@ -72,17 +72,16 @@
 			MyBatis Generator, do not modify. This element was generated on Tue Jul 18 
 			11:12:09 CST 2017. -->
 		insert into job_info (job_id, job_name, job_sal,
-		job_year, job_edu,
-		job_date,
+		job_year,
+		job_edu,job_date,
 		job_welfare, job_description, cuser_id
 		)
 		values
 		(#{jobId,jdbcType=INTEGER}, #{jobName,jdbcType=VARCHAR},
-		#{jobSal,jdbcType=VARCHAR},
-		#{jobYear,jdbcType=VARCHAR},
+		#{jobSal,jdbcType=VARCHAR}, #{jobYear,jdbcType=VARCHAR},
 		#{jobEdu,jdbcType=VARCHAR}, #{jobDate,jdbcType=DATE},
 		#{jobWelfare,jdbcType=VARCHAR}, #{jobDescription,jdbcType=VARCHAR},
-		#{comId,jdbcType=INTEGER}
+		#{cuserId,jdbcType=VARCHAR}
 		)
 	</insert>
 	<insert id="insertSelective" parameterType="com.chinasofti.model.Job_info">
@@ -197,7 +196,7 @@
 		job_welfare = #{jobWelfare,jdbcType=VARCHAR},
 		job_description = #{jobDescription,jdbcType=VARCHAR},
 		cuser_id =
-		#{comId,jdbcType=INTEGER}
+		#{cuserId,jdbcType=INTEGER}
 		where job_id = #{jobId,jdbcType=INTEGER}
 	</update>
 
@@ -242,6 +241,27 @@
 		e.cuser_id=f.cuser_id and e.job_name like concat('%',#{name},'%')
 
 	</select>
-
+	<select id="selectByCuserId" resultMap="Job_conn_Company"
+		parameterType="java.lang.Integer">
+		select e.*,f.* from job_info
+		e,company_user f where e.cuser_id=f.cuser_id and
+		e.cuser_id=#{cuserId,jdbcType=INTEGER}
+	</select>
+	<update id="updateByJobid" > update job_info set <set>
+			<if test="jobName != null">
+				job_name = #{jobName,jdbcType=VARCHAR},
+			</if>
+			<if test="jobSal != null">
+				job_sal = #{jobSal,jdbcType=VARCHAR},
+			</if>
+			<if test="jobYear != null">
+				job_year = #{jobYear,jdbcType=VARCHAR},
+			</if>
+			<if test="jobEdu != null">
+				job_edu = #{jobEdu,jdbcType=VARCHAR},
+			</if>
+			</set>
+			where job_id = #{jobId,jdbcType=INTEGER}
+			</update>
 
 </mapper>

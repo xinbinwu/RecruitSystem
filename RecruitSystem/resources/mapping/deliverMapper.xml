@@ -87,4 +87,16 @@
 		a.cuser_id=d.cuser_id 
 
 	</select>
+	<select id="selectAllDeliverByCuserId" resultMap="DeliverResultMap"
+		parameterType="java.lang.Integer">
+		select
+		a.pid,a.*,b.*,c.*,d.*
+		from delivery_record
+		a,personal_user b,job_info
+		c,company_user d where
+		a.cuser_id=#{cuserid} and
+		a.job_id=c.job_id and
+		a.cuser_id=d.cuser_id 
+	</select>
+	
 </mapper>

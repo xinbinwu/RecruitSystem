@@ -23,6 +23,9 @@ public interface Job_Info_Service {
 	List<Job_info> selectAllPage(Integer startPos,Integer pageSize);
 	
 	int selectAllCount();
-	
+
+	List<Job_info> selectByCuserId(int cuserid);
+
+	int updateByJobid(Job_info newjob);
 	
 }

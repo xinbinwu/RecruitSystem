@@ -60,7 +60,6 @@ public class DeliverServiceImpl implements DeliverService {
 
 	@Override
 	public Deliver selectByDoubleId(int pid, int jobId) {
-		// TODO Auto-generated method stub
 		return this.deliverMapper.selectByDoubleId(pid, jobId);
 	}
 
@@ -68,6 +67,12 @@ public class DeliverServiceImpl implements DeliverService {
 	public List<Deliver> selectAllDeliverById(int id) {
 		// TODO Auto-generated method stub
 		return this.deliverMapper.selectAllDeliverById(id);
+	}
+
+	@Override
+	public List<Deliver> selectAllDeliverByCuserId(int id) {
+		// TODO Auto-generated method stub
+		return this.deliverMapper.selectAllDeliverByCuserId(id);
 	}
 
 }
